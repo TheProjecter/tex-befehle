@@ -1,0 +1,121 @@
+\newpage
+\section{Formatierung von Text}
+\subsection{Fett, kursiv,\dots}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\textbf{fetter Testtext}\\
+\textit{kursiver Testtext}\\
+\underline{unterstrichener Testtext}\\
+\underline{\underline{2-fach unterstrichener Testtext}}\\
+\texttt{Schreibmaschinen-Testtext}\\
+\textsc{Kapitälchen Testtext}\\
+\end{LTXexample}
+
+
+\subsection{Textsatz}
+Standardmäßig wird Text im Blocksatz, also links- und rechtsbündig gesetzt. Es gibt jedoch auch für die anderen Satze, bestimmte Umgebungen:
+\begin{multicols}{3}
+\color{blue}\begin{verbatim}
+\begin{center}
+ Text
+\end{center}
+\begin{flushleft} 
+ Text
+\end{flushleft}
+\begin{flushright}
+ Text
+\end{flushright}
+\end{verbatim}
+\end{multicols}
+\color{black}
+
+\subsection{Schriftgröße}
+Die Schriftgröße ändert man mit einem Befehl ohne Parameter. Die neue Größe gilt bis zur nächsten Änderung, dem Ende der aktuellen Umgebung oder bei z.B. $\{\backslash large \dots \}$ bis zur schließenden Klammer.
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\tiny{Testtext (tiny)}\\
+\scriptsize{Testtext (scriptsize)}\\
+\footnotesize{Testtext (footnotesize)}\\
+\small{Testtext (small)}\\
+\normalsize{default}\\
+\large{Testtext (large)}\\
+\Large{Testtext (Large)}\\
+\LARGE{Testtext (LARGE)}\\
+\huge{Testtext (huge)}\\
+\Huge{Testtext (Huge)}\\
+\end{LTXexample}
+
+
+\subsection{Kommentare}
+Kommentare werden durch \color{red}\% \color{black} eingeleitet und reichen bis zum Zeilenumbruch der aktuellen Zeile.\\
+Eine Möglichkeit mehrzeilige Kommentare zu erzeugen gibt es nicht!
+
+\subsection{Bereiche (Scope)}
+Wenn gewisse Formatierungen (Schriftfarbe, Zeilenhöhe, Schriftgröße) nur in einem bestimmten Bereich wirken sollen (nicht im ganzen weiteren Text), dann kann der Bereich mit {\color{red}{geschweiften Klammern}} umschlossen werden.\\
+Die Formatierungen werden dann innerhalb dieser Klammern definiert und gelten dann nur in diesem Scope.
+
+\subsection{Mehrspaltiger Text}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{multicols}{2}
+Dieser ziemlich dümmliche Text soll als Demonstration dienen, wie das Mehr-Spalten-Layout funktioniert und wann und wo die Zeilen und Wörter umgebrochen werden und wie der Textfluss ist.
+\end{multicols}
+\end{LTXexample}
+
+
+\subsection{Besondere Zeichen in \LaTeX{}}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\_  	&\backslash\_ &\backslash  	&\backslash backslash &\textasciitilde  	&\backslash textasciitilde\\
+&\S  	&\backslash S &\$  	&\backslash\$ &\&  	&\backslash \&\\
+&\#  	&\backslash\# &\%  	&\backslash\% &\hat\: &\backslash hat 
+\end{array}
+\end{displaymath}
+
+
+\subsection{Das EURO-Symbol}
+{\color{blue}
+\begin{verbatim}
+\usepackage{eurosym}
+...
+\euro\end{verbatim}}
+
+
+
+\subsection{Verlinkungen im Text}
+Mit dem Paket {\tt hyperref} werden automatisch Hyperlinks vom Verweis zur Marke gesetzt.\\
+Das Paket sollte am besten als letztes geladen werden, da sehr viele Einstellungen von diesem überschrieben werden. Das Laden und das Setup der Einstellungen erfolgt z.B. mit folgendem Code:
+\color{blue}\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{
+	pdfpagemode=FullScreen,
+	pdftitle={TeX Befehle},					% Titel des PDF-Dokuments
+	pdfauthor={Christian Schwabe},	% Autor(Innen) des PDF-Dokuments
+	pdfpagelayout=SinglePage,
+	bookmarks=true,   				% Lesezeichen erzeugen
+	bookmarksopen=true,   		% Lesezeichen ausgeklappt
+	bookmarksnumbered=true,   % Anzeige der Kapitelzahlen am Anfang der Namen der Lesezeichen
+	pdfstartpage=Zahl,   			% Seite, welche automatisch geöffnet werden soll
+	baseurl=http://www.server.de/dateiname.pdf,   % URL des PDF-Dokuments (oder 																																	Hintergrundinformationen)
+	pdfsubject={Kurzbeschreibung als ein Satz},   % Inhaltsbeschreibung des PDF-Dokuments
+	pdfkeywords={Stichwörter},   									% Stichwortangabe zum PDF-Dokument
+	breaklinks=true,   % ermöglicht einen Umbruch von URLs
+	colorlinks=true,   % Einfärbung von Links
+	linkcolor=black,   % Linkfarbe: schwarz
+	anchorcolor=black, % Ankerfarbe: schwarz
+	citecolor=black,   % Literaturlinks: schwarz
+	filecolor=black,   % Links zu lokalen Dateien: schwarz
+	menucolor=black,   % Acrobat Menü Einträge: schwarz
+	pagecolor=black,   % Links zu anderen Seiten im Text: schwarz
+	urlcolor=black		 % URL-Farbe: schwarz
+\end{verbatim}
+\color{black}
+Ein internes Sprung-/ Linkziel wird definiert durch:
+\color{blue}\begin{verbatim}
+	\hypertarget{name}{text}
+\end{verbatim}\color{black}
+Ein klickbarer Link wird definiert durch:
+\color{blue}\begin{verbatim}
+	\hyperlink{name(=HypertargetName)}{text}
+\end{verbatim}\color{black}
+URL's werden folgendermaßen dargestellt:
+\color{blue}\begin{verbatim}
+	\href{http://www.caipiranha.de}{Caipi Homepage}
+\end{verbatim}\color{black}

@@ -1,0 +1,58 @@
+\newpage
+\section{Farben}
+\subsection{Schrift und Hintergrund}
+\begin{itemize}
+	\item \texttt{$\backslash$ color\{red\}:} \color{red} Der folgende Text ist rot bis zum nächsten Farbwechsel.\color{black}
+	\item \texttt{$\backslash$ textcolor\{green\}}\{\textcolor{green}{Der eingeklammerte Text ist grün}\}.
+	\item \texttt{$\backslash$ pagecolor\{blue\}:}\;Setzen der Seitenhintergrundfarbe.
+\end{itemize}
+
+\subsection{Farbboxen}
+\begin{itemize}
+	\item \texttt{$\backslash$ colorbox\{red\}}\{\colorbox{red}{Rot hinterlegte Box}\}.
+	\item \texttt{$\backslash$ fcolorbox\{blue\}\{green\}}\{\fcolorbox{blue}{green}{Grüne Box mit blauem Rand}\}.
+	\item Ändern der Randstärke mit \texttt{$\backslash$setlength\{$\backslash$fboxrule\}\{5pt\}}: {\setlength{\fboxrule}{5pt}\fcolorbox{blue}{green}{5pt Rand}}
+	\item Ändern des Randabstandes mit \texttt{$\backslash$setlength\{$\backslash$fboxsep\}\{0pt\}}: {\setlength{\fboxsep}{0pt}\fcolorbox{blue}{green}{5pt Rand}}
+\end{itemize}
+
+\subsection{Das \texttt{framed}-Paket}
+\begin{itemize}
+	\item \textcolor{blue}{\tt \textbackslash usepackage\{framed\}}
+	\item Zeilen- und Seitenumbrüche innerhalt des Rahmens möglich!
+	\item rahmt per Voreinstellung über die gesamte Seitenbreite ein!
+	\item die definiteren Umgebungen sind:
+	\begin{itemize}
+		\item framed
+		\item shaded
+		\item snugshade
+		\item leftbar
+	\end{itemize}
+\end{itemize}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\imp{TEST}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\defi{TEST}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\bsp{\centerline{TEST}}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\note{TEST}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\Note{TEST}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\colorfbox{0.6}{orange}{wichtig}{und text}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.40]
+\colorfbox{0.95}{blue}{\textcolor{white}{test2}}{\centerline{und text-zwei}}
+\end{LTXexample}
