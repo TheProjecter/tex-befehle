@@ -1,0 +1,86 @@
+\section{Operatoren}
+\subsection{Binäre Operatoren}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\times  	&\backslash times &\cdot    &\backslash cdot &\circ    &\backslash circ\\
+&\mp  	&\backslash mp &\pm  	&\backslash pm &\oplus    &\backslash oplus\\
+&\cap  	&\backslash cap &\cup  	&\backslash cup &\odot    &\backslash odot\\
+&\vee  	&\backslash vee &\wedge  	&\backslash wedge &\div	&\backslash div
+\end{array}
+\end{displaymath}
+
+\subsection{"`große"' Operatoren}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\sum  	&\backslash sum &\prod  	&\backslash prod &\int    &\backslash int\\
+&\bigwedge  	&\backslash bigwedge &\bigcup  	&\backslash bigcup
+\end{array}
+\end{displaymath}
+
+\subsection{Relationen}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\leq  	&\backslash leq &\geq  	&\backslash geq\\
+&\ll  	&\backslash ll &\gg  	&\backslash gg\\
+&\subset    &\backslash subset &\supset    &\backslash supset\\
+&\subseteq    &\backslash subseteq &\supseteq    &\backslash supseteq\\
+&\in  	&\backslash in &\ni  	&\backslash ni\\
+&\notin  	&\backslash notin &\notni  	&\backslash notni\\
+&\equiv  	&\backslash equiv &\sim  	&\backslash sim\\
+&\approx  	&\backslash approx &\cong  	&\backslash cong\\
+&\not=  	&\backslash not= &\not\equiv  	&\backslash not \backslash equiv\\
+&\coloneqq  	&\backslash coloneqq &\eqqcolon  	&\backslash eqqcolon\\
+&\triangleq  	&\backslash triangleq &\hat{=}	&\backslash hat\{=\}
+\end{array}
+\end{displaymath}
+
+\subsection{Pfeile}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\mapsto  	&\backslash mapsto &\longmapsto  	&\backslash longmapsto\\
+&\rightarrow  	&\backslash rightarrow &\longrightarrow  	&\backslash longrightarrow\\
+&\Rightarrow  	&\backslash Rightarrow &\longleftarrow  	&\backslash longleftarrow\\
+&\leftrightarrow  	&\backslash leftrightarrow &\Longleftrightarrow  	&\backslash Longleftrightarrow\\
+&\uparrow  	&\backslash uparrow &\Uparrow  	&\backslash Uparrow\\
+&\downarrow  	&\backslash downarrow &\Downarrow  	&\backslash Downarrow\\
+&\nearrow  	&\backslash nearrow &\searrow  	&\backslash searrow\\
+&\nwarrow  	&\backslash nwarrow &\swarrow  	&\backslash swarrow
+\end{array}
+\end{displaymath}
+
+\subsection{beschriftete Pfeile}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{center}
+$B \xrightarrow[T]{n\pm i-1} C$
+\end{center}
+\end{LTXexample}
+
+\subsection{Anordnung über-/untereinander}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{center}
+$ \underset{x}{yz} $\\
+$ \overset{a}{bcd} $\\
+$ \stackrel{!}{=} $
+\end{center}
+\end{LTXexample}
+
+\subsection{Klammern}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\{  &\backslash \{ &\} &\backslash \}\\
+&\|  &\backslash \| \\
+&\lfloor  &\backslash lfloor &\rfloor &\backslash rfloor\\
+&\lceil &\backslash lceil &\rceil &\backslash rceil\\
+&\langle  &\backslash langle &\rangle &\backslash rangle\\
+&\llfloor  &\backslash llfloor &\rrfloor &\backslash rrfloor
+\end{array}
+\end{displaymath}
+Um mathematische Ausdrücke mit der richtigen Klammergröße zu versehen, \quad $\backslash left$ \quad oder \quad $\backslash right$ \quad davor schreiben, z.B.: \quad $\backslash left($ \quad oder \quad$ \textcolor{red}{\backslash right \backslash \}}$.
+
+\subsection{Fallunterscheidungen}
+\begin{LTXexample}[pos=l, rframe={}, width=.50]
+$f(x) = \begin{cases}
+x/2 \qquad & , x \text{ gerade}\\
+3x+1 & , x \text{ ungerade}
+\end{cases}$
+\end{LTXexample}

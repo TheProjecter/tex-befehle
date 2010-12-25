@@ -1,0 +1,95 @@
+\newpage
+\section{Listen und Aufzählungen}
+\subsection{Aufzählung mit Punkten}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{itemize}
+	\item Punkt 1
+	\begin{itemize}
+		\item Punkt 1
+		\item Punkt 2
+		\begin{itemize}
+			\item Punkt 1
+			\item Punkt 2
+		\end{itemize}
+	\end{itemize}
+	\item Punkt 2
+	\item blablabla
+\end{itemize}
+\end{LTXexample}
+
+
+\subsection{Aufzählung mit Nummern}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{enumerate}
+	\item Punkt 1
+	\begin{enumerate}
+		\item Punkt 1
+		\item Punkt 2
+		\begin{enumerate}
+			\item Punkt 1
+			\item Punkt 2
+		\end{enumerate}
+	\end{enumerate}
+	\item Punkt 2
+	\item blablabla
+\end{enumerate}
+\end{LTXexample}
+
+
+\subsection{Aufzählung mit benutzerdefinierten Zeichen}
+Diese Zeichen benötigen das Package "`bbding"'.\\
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{itemize}
+	\item[\HandRight] Punkt 1
+	\item[\PencilRight] Punkt 2
+	\item[\XSolidBrush] Punkt 3
+	\item[\DiamondSolid] Punkt 4
+	\item[\OrnamentDiamondSolid] Punkt 5
+	\item[\ArrowBoldRightStrobe] Punkt 6
+	\item[\ArrowBoldDownRight] Punkt 7
+	\item[\CircleSolid] Punkt 8
+	\item[\Square] Punkt 9
+	\item[\SquareSolid] Punkt 10
+\end{itemize}
+\end{LTXexample}
+
+
+
+\subsection{Veränderung der Standard-Zeichen}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\renewcommand{\labelitemi}{$\circ$}
+\renewcommand{\labelitemii}{$\bullet$}
+\renewcommand{\labelitemiii}{$\diamond$}
+\begin{itemize}
+	\item Punkt xx
+	\begin{itemize}
+		\item Punkt yy
+		\item Punkt yyy
+		\begin{itemize}
+			\item Punkt 1
+			\item Punkt 2
+		\end{itemize}
+	\end{itemize}
+	\item Punkt 2
+	\item blablabla
+\end{itemize}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumii}{\alph{enumi}.\Roman{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumiii}.)}
+\begin{enumerate}
+	\item Punkt 1
+	\begin{enumerate}
+		\item Punkt 1
+		\item Punkt 2
+		\begin{enumerate}
+			\item Punkt 1
+			\item Punkt 2
+		\end{enumerate}
+	\end{enumerate}
+	\item Punkt 2
+	\item blablabla
+\end{enumerate}
+\end{LTXexample}

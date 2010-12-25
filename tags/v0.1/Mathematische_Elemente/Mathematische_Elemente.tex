@@ -1,0 +1,108 @@
+\newpage
+\section{Mathematische Elemente}
+\subsection{Wurzeln}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l}
+&\sqrt{x}  &\backslash sqrt \{ x\}\\
+&\sqrt[3]{x}  &\backslash sqrt [3] \{ x\}
+\end{array}
+\end{displaymath}
+
+\subsection{Brüche und Binomial-Koeffizienten}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l}
+&\frac{x^2}{y}  &\backslash frac \{ x\;\hat{}\; 2 \} \{ y \}\\
+&x^{\frac{1}{2}}  &x\;\hat{}\;\{ \backslash frac \{1\}\{2\}\}\\
+&{n \choose k}  &\{ n\;\backslash choose\;k \}\\
+&{x \atop y+2}  &\{ x\;\backslash atop\;y+2 \}
+\end{array}
+\end{displaymath}
+
+\subsection{Waagerechte Striche und Klammern}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l}
+&\overline{m+n}  &\backslash overline \{ m+n\}\\
+&\underbrace{a+b+\cdots+z}_{26}  &\backslash underbrace \{ a+b+\backslash cdots +z\} \_\{26\}
+\end{array}
+\end{displaymath}
+
+\subsection{Funktionsnamen}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l@{\hspace{2.0cm}}c@{\qquad}l}
+&\arg  	&\backslash arg &\ln  	&\backslash ln	&\sin  		&\backslash sin\\
+&\cos  	&\backslash cos &\log  	&\backslash log &\tan  		&\backslash tan\\
+&\exp  	&\backslash exp &\max  	&\backslash max &\\
+&\lg  	&\backslash lg  &\min  	&\backslash min &
+\end{array}
+\end{displaymath}
+
+\subsection{Komma als Dezimaltrennzeichen}
+Das Komma ist in LaTeX standardmäßig ein Aufzählungszeichen. Soll ein Komma als Dezimaltrennzeichen verwendet werden, so kann dies durch geschweifte Klammern bewerkstelligt werden.
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l}
+&3{,}14	&3\{,\}14\\
+&3,14	&3,\!14 
+\end{array}
+\end{displaymath}
+
+\subsection{Matrizen}
+Es gibt für jede verscheidene Matrizenart eine eigene Umgebung.\\
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+$\begin{bmatrix}
+ 0 & \cdots & 1 \\
+ 2 & \cdots & 3 
+\end{bmatrix}$
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+$\begin{vmatrix}
+ a & b \\
+ c & d 
+\end{vmatrix}$
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+$\begin{Vmatrix}
+ 0 & 1 \\
+ 2 & 3 
+\end{Vmatrix}$
+\end{LTXexample}
+
+\subsection{Mehrzeilige Gleichungen}
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+\begin{align*}
+V_{Max} & = 12345\\
+& = 2345\\
+& = 345
+\end{align*}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+\begin{alignat*}{2}
+V_{Max} & = 12345 \qquad & \text{Axiom 1}\\
+& = 2345 & \text{Axiom 2}\\
+& = 345  & \text{Axiom 3}
+\end{alignat*}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.5]
+$\begin{array}{lc@{\qquad}l}
+1221 & test & 1221\\
+23332 & testtext & 23332
+\end{array}$
+\end{LTXexample}
+
+
+\subsection{Beispiele}
+\begin{displaymath}
+\begin{array}{lc@{\qquad}l}
+&a \bmod b  &a\;\backslash bmod\;b\\
+&x \equiv a \pmod {b}  &x\;\backslash equiv\;a\;\backslash pmod \{b\}\\
+&\lim\limits_{x \to 0} \frac{\sin x}{x}  &\backslash lim _{} \{x \backslash to\;0\} \backslash frac \{\backslash sin\;x\}\{x\}\\
+&\sum\limits^{\infty}_{n=1}(T \geq n) &\backslash sum\backslash limits\hat\; \{\backslash infty\}\_\{n=1\}(T \backslash geq\;n)
+\end{array}
+\end{displaymath}

@@ -1,0 +1,198 @@
+\newpage
+\section{Tabellen und Tabulatoren}
+\hypertarget{tabul}{\subsection{Tabellen}}
+Tabellen werden mit der \texttt{tabular}-Umgebung definiert.
+\color{blue}
+\begin{verbatim}
+\begin{tabular}[<Position>]{<Spaltendefinition>}
+...
+<Eintrag>   &  <Eintrag>   \\
+...
+\end{tabular}
+\end{verbatim}
+\color{black}
+\storestyleof{itemize}
+\begin{listliketab}
+\begin{tabularx}{\textwidth}{lX}
+	\textbullet & Jede Zeile wird mit dem Zeilenumbruch $\backslash\backslash$ abgeschlossen.\\
+	\textbullet & Spalten werden mit Hilfe des \&-Zeichens voneinander getrennt.\\
+	\textbullet & Bei \texttt{<Spaltendefinition>} gibt man die Anzahl der Spalten in der Form \texttt{|l r c|} an. Über die Zeichen \textbf{r}ight \textbf{l}eft und \textbf{c}enter wird die Textausrichtung in der Spalte definiert.\\
+	\textbullet & Weitere mögliche Formateinträge:\\
+	&{\begin{tabularx}{\linewidth}{@{}llX@{}}
+		\tiny{\SquareSolid} & \textcolor{blue}{\tt{p\{breite\}}} & Absatz der Breite 										\textit{breite}\\
+		\tiny{\SquareSolid} & \textcolor{blue}{\tt{*\{anzahl\}\{format\}}} & das 												\textit{format} wird \textit{anzahl} mal wiederhohlt, z.B. \textit{*\{3\}\{c|\}} 							$\hat=$ \textit{\{c|c|c|\}}\\
+		\tiny{\SquareSolid} & \textcolor{blue}{\texttt{@\{text\}}} & der Text \texttt{text} 						wird anstatt des normal verwendeten Zwischenraumes zwischen den benachbarten Spalten 					angebracht.\\
+		\end{tabularx}
+	}\\
+	\textbullet & \textbf{Die Anzahl der Ausrichtungszeichen legt die Spaltenzahl fest!}\\
+	\textbullet & Mithilfe des Befehls \textcolor{blue}{\tt \textbackslash multicolumn\{<Spaltenzahl>\}\{Ausrichtung\}\{Text\}} kann ein Eintrag über mehrere Spalten gehen.\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$hline} für eine horizontale Linie über die ganze Tabellenbreite (anzugeben direkt nach einem \textbackslash\textbackslash).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$cline\{von--bis\}} für eine horizontale Linie über einzelne Spalten (wie {\tt $\backslash$hline} anzugeben direkt nach einem \textbackslash\textbackslash).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$vline} für eine vertikale Linie innerhalb einer Spalte.\\
+\end{tabularx}
+\end{listliketab}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.50]
+\begin{tabular}{l|c|r||p{2.5cm}|r@{.}l}
+links & zentriert & rechts & Dies ist ein Text, der wie ein Absatz der Breite 2,5 cm formatiert wird. & DM 2 & 50 \\ 
+\hline
+\multicolumn{2}{c|}{eins und zwei} & drei 1 \vline{} 2 & Absatz & \$ 20 & 50 \\ 
+\cline{1-2}
+\end{tabular}
+\end{LTXexample}
+
+\subsubsection{Zeilenabstand}
+Falls $\backslash$hline verwendet wird, ist die Spaltenhöhe etwas zu klein. Dazu gibt es 3 Möglichkeiten dies zu korrigieren:
+
+\paragraph{Arraystretch}
+$\;$ \\
+Kann auch verwendet werden, um generell die Zeilenhöhe zu verringern oder erhöhen.\\
+{\color{orange}{Fügt Platz über und unter dem Zeilentext ein!}}
+{\color{blue}
+\begin{verbatim}
+\renewcommand{\arraystretch}{1.2}\end{verbatim}}
+
+\paragraph{Extrarowheight}
+$\;$ \\
+{\color{orange}{Fügt nur Platz über dem Zeilentext ein! Fügt aber auch Platz ein, falls gar kein $\backslash$hline in der Zeile vorhanden ist!}}
+{\color{blue}
+\begin{verbatim}
+\usepackage{array}
+...
+\setlength{\extrarowheight}{1.5pt}\end{verbatim}}
+
+\paragraph{Bigstruts}
+$\;$ \\
+
+
+\hypertarget{tabul}{\subsubsection{Spaltenabstand}}
+
+
+
+\subsection{Tabulatoren}
+Hier muss man selbst für die Breite der Spalten sorgen!\\
+\storestyleof{itemize}
+\begin{listliketab}
+\begin{tabularx}{\linewidth}{llX}
+	\textbullet \, & \textcolor{blue}{\tt $\backslash$=} &  setzt einen Tabulator an der aktuellen Spaltenposition.\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$>} & springt um eine Tabulatorposition nach rechts. \\
+	\textbullet & \textcolor{blue}{\tt $\backslash$<} & springt um eine Tabulatorposition nach links.\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$+} & verschiebt den linken Rand um eine Tabulatorposition nach rechts (muß vor dem Zeilenumbruch mit \verb+\\+ erfolgen!).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$-} & verschiebt den linken Rand um eine Tabulatorposition nach links (muß vor dem Zeilenumbruch mit \verb+\\+ erfolgen!).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$pushtabs} & speichert die aktuellen Tabulatorpositionen auf dem Stapel und löscht dann die aktuellen (verschachtelbar).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$poptabs} & löscht die aktuellen Tabulatorpositionen und lädt die gespeicherten vom Stapel an deren Stelle (verschachtelbar).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash$kill} & entfernt die aktuelle Zeile (meist eine Musterzeile).\\
+	\textbullet & \textcolor{blue}{\tt $\backslash\backslash$} & beendet die aktuelle Zeile.\\
+\end{tabularx}
+\end{listliketab}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\begin{tabbing}
+erste Spalte breit \= zweite Spalte \=
+dritte Spalte \kill
+erste Spalte \> zweite Spalte \> dritte Spalte \\
+vorne \> mitte \> hinten \+ \\
+mitte \> hinten \+ \\
+hinten \- \- \\
+vorne \> mitte \> hinten \\
+diese Zeile erscheint nicht \kill
+\end{tabbing}
+\end{LTXexample}
+
+\vspace{1.0cm}
+\subsection{listliketab-Package}
+Ermöglicht es Listen mit Tabellen zu kombinieren und so Tabulatoren innerhalb von Listen zu verwenden.\\
+Anstelle der \hyperlink{tabul}{{\tt tabular}}--Umgebung innerhalb von {\tt listliketab}, können auch \hyperlink{tabulx}{{\tt tabularx}}, \hyperlink{longt}{{\tt longtable}} und evtl andere verwendet werden.\\
+\textcolor{blue}{\tt \textbackslash usepackage\{listliketab\}}
+\begin{LTXexample}[pos=l, rframe={}, width=.45]
+\storestyleof{itemize}
+\begin{listliketab}
+\begin{tabular}{lll}
+	\textbullet & OneOneOne & TWOtwo\\
+	\textbullet & Two & Three\\
+	\textbullet & Three & FourfourFour \\
+\end{tabular}
+\end{listliketab}
+\end{LTXexample}
+
+\begin{LTXexample}[pos=l, rframe={}, width=.35]
+\storestyleof{enumerate}
+\begin{listliketab}
+\newcounter{tabenum}\setcounter{tabenum}{0}
+\newcommand{\nextnum}{\addtocounter{tabenum}{1}\alph{tabenum})}
+\begin{tabular}{l>{\bf}l@{~or~}>{\bf}l@{~or~}>{\bf}l}
+	\nextnum & Red & green & blue\\
+	\nextnum & Short & stout & tall\\
+	\nextnum & Happy & sad & confused\\
+\end{tabular}
+\end{listliketab}
+\end{LTXexample}
+
+\hypertarget{tabulx}{\subsection{tabularx-Package}}
+\color{blue}
+\begin{verbatim}
+\usepackage{tabularx}
+  \begin{tabularx}{Breite}{Spaltendefinition}
+ 	  Körper
+  \end{tabularx}\end{verbatim}\color{black}
+Diese Umgebung ist nah verwandt mit der \hyperlink{tabul}{{\tt tabular}}-Umgebung, somit kann man sich auch an deren Syntax orientieren. Die Zellen werden durch \& getrennt und mit \textbackslash\textbackslash   beendet.\\
+Hier kann man allerdings die Tabellenbreite explizit vorgeben. Die mit X markierten Spalten sind Spalten variabler Breite. Zwischen diesen Spalten wird der verbliebene Platz aufgeteilt, der sich aus der Gesamtbreite und der schon verbrauchten Breite für die "`normalen"'Spalten ergibt.\\
+\storestyleof{itemize}
+\begin{listliketab}
+\begin{tabularx}{\textwidth}{llX}
+	\textbullet \, & {\it Breite} & Hier wird die gewünschte Tabellenbreite angegeben. Häufig verwendet werden hier \textcolor{blue}{\tt\textbackslash textwidth} oder \textcolor{blue}{\tt\textbackslash linewidth}.\\
+	\textbullet & {\it X} & neue Spaltendefinition $\rightarrow$ Spalte mit variabler Breite.\\
+	\textbullet & \textcolor{blue}{\tt \textbackslash hsize} & sind 2 oder mehr Spalten mit X markiert würde der verbliebene Platz gleichmäßig auf diese aufgeteilt werden. Mit {\tt \textbackslash hsize} lässt sich ein Verhältniszwischen diesen variablen Spalten angeben.\\
+	\textbullet & \multicolumn{2}{X}{Will man mehrere tabularx Umgebungen schachteln, muss man diese in geschweifte Klammern einschließen.}
+\end{tabularx}
+\end{listliketab}
+
+
+\hypertarget{longt}{\subsection{longtable-Package}}
+\color{blue}
+\begin{verbatim}
+\usepackage{longtable}
+  \begin{longtable}{ Format }
+    Körper 
+  \end{longtable}\end{verbatim}
+\color{black}
+Wie die \hyperlink{tabul}{{\tt tabular}} Umgebung, erlaubt jedoch auch mehrseitige Tabellen.\vspace{0.2cm}\\
+Um die Tabelle automatisch auf die Seiten umzubrechen, muss LaTeX die Tabelle mit seinem Seitenumbruchsalgorithmus verareiten können. Dazu ist es jedoch notwendig, das Dokument mehrfach zu kompilieren.\\
+Um diese Anzahl der Kompiliervorgänge zu verringern, kann die erste Zeile der Tabelle mit {\tt \textbackslash kill} anstatt mit {\tt \textbackslash\textbackslash} abgeschlossen werden.\\
+
+\subsection{ltxtable-Package}
+\color{blue}
+\begin{verbatim}
+\usepackage{ltxtable}
+  \LTXtable{Breite}{Dateiname}
+\end{verbatim}
+\color{black}
+Tabelle als \hyperlink{longt}{{\tt longtable}}--Umgebung in eine eigene Datei schreiben und dabei die X-Spezifikation von \hyperlink{tabulx}{{\tt tabularx}} benutzen.\\
+Danach Tabelle mit obiger Anweisung in das Dokument einfügen.\\
+
+Eine andere Möglichkeit wäre mit dem \hyperlink{fileco}{{\tt filecontents}}--Package zu arbeiten. Hier kann die Tabellendefinition im gleichen Dokument erfolgen. Dabei wird die Tabelle dann in die entsprechende Datei geschrieben (überschrieben) und an der gewünschten Stelle eingefügt.
+\color{blue}
+\begin{verbatim}
+\documentclass[a4paper,12pt]{scrreprt}
+
+\usepackage{filecontents}
+\begin{filecontents*}{LONGTAB.tex}
+\begin{longtable}{lX}
+EINS &
+Auf der Mauer
+\\
+DREI &
+sitzt 'ne kleine Wanze
+\end{longtable}
+\end{filecontents*}
+
+
+\usepackage[german]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{ltxtable}
+
+\begin{document}
+\LTXtable{\textwidth}{LONGTAB}
+\end{document}
+\end{verbatim}
+\color{black}

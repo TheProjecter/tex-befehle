@@ -1,0 +1,198 @@
+\documentclass[a4paper, 10pt, DIV15, parskip=half-]{scrartcl}  % halfparskip = halbzeiliger Absatzabstand
+
+\listfiles
+
+\usepackage[ngerman]{babel}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[latin1]{inputenc}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Schriften ++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\usepackage{charter}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+
+\usepackage{microtype}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ weitere Pakete +++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ % Paket um Bilder einzubinden. Dokumentation: l2picfaq.pdf
+\usepackage{graphicx}
+
+% mehrspaltiger Textsatz - allerdings nicht im ganzen Dokument
+\usepackage{multicol}
+
+% zum Anzeigen von Internetlinks
+\usepackage{url}
+
+% einige spezielle Mathe-Kommandos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% anzeigen von Quellcode
+\usepackage{listings}
+
+% um Formeln (und Text) vom amsmath-package teilweise farbig machen zu können
+\usepackage[svgnames]{xcolor} 
+\usepackage{color}
+
+% um gleichzeitig auf einfache Art und Weise den Latex-COde darstellen zu können
+\usepackage[final]{showexpl}
+
+% Definition für die Latex-Code-Boxen
+\lstset{% 
+		backgroundcolor=\color{lightgray},
+		breaklines=true
+}%
+
+% diverse Symbole z.B. für Listen und Aufzählungen
+\usepackage{bbding}
+
+\usepackage{txfonts} 				% für die mathematischen Symbole für 'Nicht-Element-von'
+\usepackage{ulsy}						% für Widerspruchsblitze
+
+% um Tabulatoren in Listen verwenden zu können
+\usepackage{listliketab}
+
+% um Tabellen fester Gesamtbreite definieren zu können
+\usepackage{tabularx}
+
+% für mehrseitige Tabellen
+\usepackage{longtable}
+
+% für farbige Boxen und Rahmen
+\usepackage{framed}
+
+% um Graphen zu "zeichnen"
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,decorations,shadows,fadings,arrows,snakes,backgrounds,petri,shapes.geometric}
+
+
+\usepackage{C://Users/Cheffe/Documents/myown}
+
+
+% Paragraph-Überschirften auch nummerieren
+\setcounter{secnumdepth}{5}
+% Paragraph-Überschriften auch ins Inhaltsverzeichnis mit aufnehmen
+\setcounter{tocdepth}{5}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Kopf- und Fusszeilen +++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\usepackage{scrpage2}
+
+% Hier folgen die Kopfzeilentexte
+\ihead{Christian Schwabe}
+\ohead{LMU München}
+\ifoot{} %  = Kolumnentitel
+\ofoot{\pagemark} %  = Seitenzahl
+\cfoot{}
+
+
+\setheadsepline{0.5pt} % Dicke der Trennlinie Kopfzeile - Text
+\setfootsepline{0.5pt} % Dicke der Trennlinie Fusszeile - Text
+
+\pagestyle{scrheadings}	% gemachte Einstellungen anwenden
+
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Zeilenabstand ++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\usepackage{setspace}
+\singlespacing	% 1.5-facher Zeilenabstand; 1 = \singlespacing; 2 = \doublespacing
+
+% Höhe der Kopfzeile
+\setlength{\headheight}{4em}
+
+
+
+
+% ganz zum Schluss noch das Paket für Links und Verlinkungen
+\usepackage{hyperref}
+\hypersetup{
+pdftitle={TeX Befehle},
+pdfauthor={Christian Schwabe},
+pdfpagelayout=SinglePage,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+anchorcolor=rblack,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+pagecolor=black,
+urlcolor=black 
+}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ hier beginnt das eigenliche Dokument +++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Titelseite +++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{titlepage}
+\begin{center}
+\vspace*{\fill}{LMU München\\ Informatik}
+\vfill {{\Large\LaTeX{} "~ Befehle \\ \large Eine kleine Auswahl}}
+\vfill {Christian Schwabe \\ christian.schwabe@campus.lmu.de \\ \today}
+\end{center}
+\end{titlepage}
+
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Inhaltsverzeichnis +++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% Der folgende Befehl generiert automatisch ein Inhaltsverzeichnis, wobei er die
+% mittels \section{}... gemachten Titel verwendet. Damit das Inhaltsverzeichnis
+% korrekt erstellt wird, muss mindestens 2 mal neu kompiliert werden!
+\tableofcontents
+
+% den Rest der Seite frei lassen: \newpage erzeugt lediglich eine neue Seite,
+% \clearpage fügt zusätzlich noch alle figures, tables ... vorher ein.
+\clearpage
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Text +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\include{Installation/Installation}
+
+\include{Abstaende/Abstaende}
+
+\include{Mathematische_Symbole/Mathematische_Symbole}
+
+\include{Operatoren/Operatoren}
+
+\include{Mathematische_Elemente/Mathematische_Elemente}
+
+\include{Programmcode/Programmcode}
+
+\include{Textformatierung/Textformatierung}
+
+\include{Listen_und_Aufzaehlungen/Listen_und_Aufzaehlungen}
+
+\include{Eigene_Kommandos/Eigene_Kommandos}
+
+\include{Tabellen/Tabellen}
+
+\include{Farben/Farben}
+
+\include{Indexregister/Indexregister}
+
+\end{document}
