@@ -1,0 +1,40 @@
+% Eine Überschrift erster Ordnung machen
+\section{Installation}
+\subsection{MikTeX + TeXnicCenter}
+In den Umgebungsvariablen (System -> Erweiterte Systemeinstellungen -> Erweitert -> Umgebungsvariablen -> Path)\\
+den Pfad zum MikTeX-bin-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backslash$Program Files$\backslash$MikTeX$\backslash$miktex$\backslash$bin$\backslash$;}}
+
+\subsection{Verwendung von TikZ und TeXnicCenter}
+\begin{enumerate}
+	\item \textcolor{red}{gnuplot} downloaden und ins C-Programmverzeichnis entpacken: \href{http://www.gnuplot.info/}{\textcolor{blue}{http://www.gnuplot.info/}} 
+	\item In den Umgebungsvariablen (System -> Erweiterte Systemeinstellungen -> Erweitert -> Umgebungsvariablen -> Path)\\
+den Pfad zum gnuplot-binary-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backslash$Program Files$\backslash$gnuplot$\backslash$binary$\backslash$}}
+	\item Im Programm TeXnicCenter eine Kommandozeilen Option hinzufügen:\\
+			\texttt{-interaction=nonstopmode} $\enspace\longrightarrow\enspace$ \texttt{--src -interaction=nonstopmode --enable-write18 "`\%Wm"'}\\
+			unter Ausgabe -> Augabeprofile definieren -> Argumente die an den Compiler übergeben werden sollen\\
+\end{enumerate}
+
+\subsection{Verwendung von PDF-XChange Viewer und TeXnicCenter}
+Bei Verwendung des PDF-XChange Viewer als Standard-PDF-Viewer in TeXnicCenter, können die PDF-Dokumente vor dem Kompilieren automatisch geschlossen werden:
+\begin{enumerate}
+	\item In TexnicCenter auf \textbf{Ausgabe} klicken
+	\item \textbf{Ausgabeprofil definieren} 
+	\item \textbf{Viewer}
+	\item Beim \textbf{Pfad der Anwendung} den Pfad zum Viewer angeben, z.B: \textcolor{red}{\texttt{D:$\backslash$Programme$\backslash$Tracker Software$\backslash$PDF-XChange Viewer$\backslash$pdf-viewer$\backslash$PDFXCview.exe}}
+	\item \textbf{Projektausgabe betrachten} $\longrightarrow$ Kommandozeile auswählen und als Kommando \textcolor{red}{\texttt{"'\%bm.pdf"'}} eintragen 
+	\item Bei \textbf{Compilierung vor Ausgabe schließen} auch Kommandozeile auswählen und \textcolor{red}{\texttt{/close "'\%bm.pdf"'}} eintragen\\
+\end{enumerate}
+
+\subsection{Verwendung von SumatraPDF und TeXnicCenter (incl. SyncTeX)}
+Sumatra PDF ist ein extrem schlanker PDF-Viewer, der Änderungen an geöffneten PDF akzeptiert und sogar Vorwärts- und Rückwärtssuche untestützt, d.h. das Springen zwischen entsprechenden Stellen in der PDF-Ausgabe und dem Quellcode.\\
+Nach dem Installieren von Sumatra PDF mit den Standardeinstellungen wird das Profil LaTeX $\Rightarrow$ PDF mit dem neuen Namen \textcolor{red}{LaTeX $\Rightarrow$ PDF (Sumatra)} kopiert. Folgende Einstellungen werden geändert:
+\begin{itemize}
+	\item \textbf{(La)Tex}\\Bei \textbf{Argumente, die an den Compiler übergeben werden sollen} muss folgendes eingetragen werden:\\\textcolor{red}{\texttt{-synctex=-1 -interaction=nonstopmode "'\%pm"'}}
+	\item \textbf{Viewer}\\Bei \textbf{Pfad der Anwendung} muss folgendes stehen:\\
+		\textcolor{red}{\texttt{C:$\backslash$Programme$\backslash$SumatraPDF$\backslash$SumatraPDF.exe -reuse-instance -inverse-search}}\\		\textcolor{red}{\texttt{"$\backslash$"C:$\backslash$Programme$\backslash$TeXnicCenter$\backslash$TEXCNTR.EXE$\backslash$" /ddecmd $\backslash$"[goto('\%f', '\%l')]$\backslash$"'"'}}\\Hinweis: nach dem \texttt{search} kommt ein Leerzeichen!
+	\item Bei \textbf{Projektausgabe betrachten} muss der Radiobutton bei \textcolor{red}{Kommandozeile} gesetzt werden.\\
+			Außerdem ist das Kommando \textcolor{red}{\texttt{[Open("'\%bm.pdf"',0,0,1)]}} einzugeben.
+	\item Bei \textbf{Suche in Ausgabe} muss der Radiobutton bei \textcolor{red}{DDE-Kommando} gesetzt werden mit:\\ \textbf{Server:} 	\textcolor{red}{\texttt{SUMATRA}}\\\textbf{Thema:} \textcolor{red}{\texttt{Control}}\\
+			Außerdem ist das Kommando \textcolor{red}{\texttt{[ForwardSearch("'\%bm.pdf"',"'\%Wc"',\%l,0,0,0)]}} einzugeben.
+	\item Bei \textbf{Vor Kompilierung Ausgabe schließen} muss der Radiobutton bei \textcolor{red}{Nicht schließen} gesetzt werden.\\
+\end{itemize}

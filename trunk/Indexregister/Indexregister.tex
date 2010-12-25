@@ -1,0 +1,14 @@
+\section{Indexregister erstellen}
+\begin{itemize}
+	\item \textcolor{blue}{\tt \textbackslash usepackage\{makeidx\}}
+	\item \textcolor{blue}{\tt \textbackslash makeindex}
+	\item beides direkt untereinander und noch vor dem Begin des Dokuments!
+	\item Einfügen von \textcolor{red}{\tt \textbackslash printindex} vor dem Dokument-Ende (bzw. an der Stelle, wo das Indexregister erscheinen soll)
+	\item An den Stellen/Wörtern, die in den Index eingetragen werden sollen, folgendes anfügen:\\
+			\textcolor{red}{\tt \textbackslash index\{Indexeintrag\_bzw\_Wort\}}
+	\item oder \textcolor{red}{\tt \textbackslash index\{Eintrag!Untereintrag\}}
+	\item \textcolor{red}{\tt \textbackslash index\{Virtuell@Eintrag\}}\\
+			Virtuelle Einträge sind notwendig, um Sonderzeichen oder mathematische Symbole in den Index einzuordnen\\
+			\textcolor{orange}{\tt \textbackslash index\{wunschenswert@wünschenswert\}}\\
+			\textcolor{orange}{\tt \textbackslash index\{R@\textbackslash R\}}
+\end{itemize}
