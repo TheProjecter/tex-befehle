@@ -3,69 +3,70 @@
 \BOOKMARK [2][-]{subsection.1.2}{Verwendung von TikZ und TeXnicCenter}{section.1}
 \BOOKMARK [2][-]{subsection.1.3}{Verwendung von PDF-XChange Viewer und TeXnicCenter}{section.1}
 \BOOKMARK [2][-]{subsection.1.4}{Verwendung von SumatraPDF und TeXnicCenter \(incl. SyncTeX\)}{section.1}
-\BOOKMARK [1][-]{section.2}{Abst\344nde}{}
-\BOOKMARK [2][-]{subsection.2.1}{Horizontale Abst\344nde}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Vertikale Abst\344nde}{section.2}
-\BOOKMARK [1][-]{section.3}{Mathematische Symbole}{}
-\BOOKMARK [2][-]{subsection.3.1}{Indizes und Potenzen}{section.3}
-\BOOKMARK [2][-]{subsection.3.2}{Mathematische Akzente}{section.3}
-\BOOKMARK [2][-]{subsection.3.3}{kleine griechische Buchstaben}{section.3}
-\BOOKMARK [2][-]{subsection.3.4}{gro\337e griechische Buchstaben}{section.3}
-\BOOKMARK [2][-]{subsection.3.5}{Zahlenbereiche}{section.3}
-\BOOKMARK [2][-]{subsection.3.6}{sonstige Symbole}{section.3}
-\BOOKMARK [1][-]{section.4}{Operatoren}{}
-\BOOKMARK [2][-]{subsection.4.1}{Bin\344re Operatoren}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{\214gro\337e\215 Operatoren}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{Relationen}{section.4}
-\BOOKMARK [2][-]{subsection.4.4}{Pfeile}{section.4}
-\BOOKMARK [2][-]{subsection.4.5}{beschriftete Pfeile}{section.4}
-\BOOKMARK [2][-]{subsection.4.6}{Anordnung \374ber-/untereinander}{section.4}
-\BOOKMARK [2][-]{subsection.4.7}{Klammern}{section.4}
-\BOOKMARK [2][-]{subsection.4.8}{Fallunterscheidungen}{section.4}
-\BOOKMARK [1][-]{section.5}{Mathematische Elemente}{}
-\BOOKMARK [2][-]{subsection.5.1}{Wurzeln}{section.5}
-\BOOKMARK [2][-]{subsection.5.2}{Br\374che und Binomial-Koeffizienten}{section.5}
-\BOOKMARK [2][-]{subsection.5.3}{Waagerechte Striche und Klammern}{section.5}
-\BOOKMARK [2][-]{subsection.5.4}{Funktionsnamen}{section.5}
-\BOOKMARK [2][-]{subsection.5.5}{Komma als Dezimaltrennzeichen}{section.5}
-\BOOKMARK [2][-]{subsection.5.6}{Matrizen}{section.5}
-\BOOKMARK [2][-]{subsection.5.7}{Mehrzeilige Gleichungen}{section.5}
-\BOOKMARK [2][-]{subsection.5.8}{Beispiele}{section.5}
-\BOOKMARK [1][-]{section.6}{Programmcode einbinden}{}
-\BOOKMARK [2][-]{subsection.6.1}{Java Code}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Pseudocode}{section.6}
-\BOOKMARK [1][-]{section.7}{Formatierung von Text}{}
-\BOOKMARK [2][-]{subsection.7.1}{Fett, kursiv,\203}{section.7}
-\BOOKMARK [2][-]{subsection.7.2}{Textsatz}{section.7}
-\BOOKMARK [2][-]{subsection.7.3}{Schriftgr\366\337e}{section.7}
-\BOOKMARK [2][-]{subsection.7.4}{Kommentare}{section.7}
-\BOOKMARK [2][-]{subsection.7.5}{Bereiche \(Scope\)}{section.7}
-\BOOKMARK [2][-]{subsection.7.6}{Mehrspaltiger Text}{section.7}
-\BOOKMARK [2][-]{subsection.7.7}{Besondere Zeichen in LaTeX}{section.7}
-\BOOKMARK [2][-]{subsection.7.8}{Das EURO-Symbol}{section.7}
-\BOOKMARK [2][-]{subsection.7.9}{Verlinkungen im Text}{section.7}
-\BOOKMARK [1][-]{section.8}{Listen und Aufz\344hlungen}{}
-\BOOKMARK [2][-]{subsection.8.1}{Aufz\344hlung mit Punkten}{section.8}
-\BOOKMARK [2][-]{subsection.8.2}{Aufz\344hlung mit Nummern}{section.8}
-\BOOKMARK [2][-]{subsection.8.3}{Aufz\344hlung mit benutzerdefinierten Zeichen}{section.8}
-\BOOKMARK [2][-]{subsection.8.4}{Ver\344nderung der Standard-Zeichen}{section.8}
-\BOOKMARK [1][-]{section.9}{Eigene Kommandos definieren}{}
-\BOOKMARK [2][-]{subsection.9.1}{Allgemein}{section.9}
-\BOOKMARK [2][-]{subsection.9.2}{Eigene Kommandos}{section.9}
-\BOOKMARK [1][-]{section.10}{Tabellen und Tabulatoren}{}
-\BOOKMARK [2][-]{subsection.10.1}{Tabellen}{section.10}
-\BOOKMARK [3][-]{subsubsection.10.1.1}{Zeilenabstand}{subsection.10.1}
-\BOOKMARK [4][-]{paragraph.10.1.1.1}{Arraystretch}{subsubsection.10.1.1}
-\BOOKMARK [4][-]{paragraph.10.1.1.2}{Extrarowheight}{subsubsection.10.1.1}
-\BOOKMARK [4][-]{paragraph.10.1.1.3}{Bigstruts}{subsubsection.10.1.1}
-\BOOKMARK [3][-]{subsubsection.10.1.2}{Spaltenabstand}{subsection.10.1}
-\BOOKMARK [2][-]{subsection.10.2}{Tabulatoren}{section.10}
-\BOOKMARK [2][-]{subsection.10.3}{listliketab-Package}{section.10}
-\BOOKMARK [2][-]{subsection.10.4}{tabularx-Package}{section.10}
-\BOOKMARK [2][-]{subsection.10.5}{longtable-Package}{section.10}
-\BOOKMARK [2][-]{subsection.10.6}{ltxtable-Package}{section.10}
-\BOOKMARK [1][-]{section.11}{Farben}{}
-\BOOKMARK [2][-]{subsection.11.1}{Schrift und Hintergrund}{section.11}
-\BOOKMARK [2][-]{subsection.11.2}{Farbboxen}{section.11}
-\BOOKMARK [2][-]{subsection.11.3}{Das framed-Paket}{section.11}
-\BOOKMARK [1][-]{section.12}{Indexregister erstellen}{}
+\BOOKMARK [2][-]{subsection.1.5}{Versionierung mit GoogleCode und SVN}{section.1}
+\BOOKMARK [1][-]{section.2}{Indexregister erstellen}{}
+\BOOKMARK [1][-]{section.3}{Abst\344nde}{}
+\BOOKMARK [2][-]{subsection.3.1}{Horizontale Abst\344nde}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Vertikale Abst\344nde}{section.3}
+\BOOKMARK [1][-]{section.4}{Mathematische Symbole}{}
+\BOOKMARK [2][-]{subsection.4.1}{Indizes und Potenzen}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Mathematische Akzente}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{kleine griechische Buchstaben}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{gro\337e griechische Buchstaben}{section.4}
+\BOOKMARK [2][-]{subsection.4.5}{Zahlenbereiche}{section.4}
+\BOOKMARK [2][-]{subsection.4.6}{sonstige Symbole}{section.4}
+\BOOKMARK [1][-]{section.5}{Operatoren}{}
+\BOOKMARK [2][-]{subsection.5.1}{Bin\344re Operatoren}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{\214gro\337e\215 Operatoren}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{Relationen}{section.5}
+\BOOKMARK [2][-]{subsection.5.4}{Pfeile}{section.5}
+\BOOKMARK [2][-]{subsection.5.5}{beschriftete Pfeile}{section.5}
+\BOOKMARK [2][-]{subsection.5.6}{Anordnung \374ber-/untereinander}{section.5}
+\BOOKMARK [2][-]{subsection.5.7}{Klammern}{section.5}
+\BOOKMARK [2][-]{subsection.5.8}{Fallunterscheidungen}{section.5}
+\BOOKMARK [1][-]{section.6}{Mathematische Elemente}{}
+\BOOKMARK [2][-]{subsection.6.1}{Wurzeln}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Br\374che und Binomial-Koeffizienten}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Waagerechte Striche und Klammern}{section.6}
+\BOOKMARK [2][-]{subsection.6.4}{Funktionsnamen}{section.6}
+\BOOKMARK [2][-]{subsection.6.5}{Komma als Dezimaltrennzeichen}{section.6}
+\BOOKMARK [2][-]{subsection.6.6}{Matrizen}{section.6}
+\BOOKMARK [2][-]{subsection.6.7}{Mehrzeilige Gleichungen}{section.6}
+\BOOKMARK [2][-]{subsection.6.8}{Beispiele}{section.6}
+\BOOKMARK [1][-]{section.7}{Programmcode einbinden}{}
+\BOOKMARK [2][-]{subsection.7.1}{Java Code}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Pseudocode}{section.7}
+\BOOKMARK [1][-]{section.8}{Formatierung von Text}{}
+\BOOKMARK [2][-]{subsection.8.1}{Fett, kursiv,\203}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{Textsatz}{section.8}
+\BOOKMARK [2][-]{subsection.8.3}{Schriftgr\366\337e}{section.8}
+\BOOKMARK [2][-]{subsection.8.4}{Kommentare}{section.8}
+\BOOKMARK [2][-]{subsection.8.5}{Bereiche \(Scope\)}{section.8}
+\BOOKMARK [2][-]{subsection.8.6}{Mehrspaltiger Text}{section.8}
+\BOOKMARK [2][-]{subsection.8.7}{Besondere Zeichen in LaTeX}{section.8}
+\BOOKMARK [2][-]{subsection.8.8}{Das EURO-Symbol}{section.8}
+\BOOKMARK [2][-]{subsection.8.9}{Verlinkungen im Text}{section.8}
+\BOOKMARK [1][-]{section.9}{Listen und Aufz\344hlungen}{}
+\BOOKMARK [2][-]{subsection.9.1}{Aufz\344hlung mit Punkten}{section.9}
+\BOOKMARK [2][-]{subsection.9.2}{Aufz\344hlung mit Nummern}{section.9}
+\BOOKMARK [2][-]{subsection.9.3}{Aufz\344hlung mit benutzerdefinierten Zeichen}{section.9}
+\BOOKMARK [2][-]{subsection.9.4}{Ver\344nderung der Standard-Zeichen}{section.9}
+\BOOKMARK [1][-]{section.10}{Eigene Kommandos definieren}{}
+\BOOKMARK [2][-]{subsection.10.1}{Allgemein}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Eigene Kommandos}{section.10}
+\BOOKMARK [1][-]{section.11}{Tabellen und Tabulatoren}{}
+\BOOKMARK [2][-]{subsection.11.1}{Tabellen}{section.11}
+\BOOKMARK [3][-]{subsubsection.11.1.1}{Zeilenabstand}{subsection.11.1}
+\BOOKMARK [4][-]{paragraph.11.1.1.1}{Arraystretch}{subsubsection.11.1.1}
+\BOOKMARK [4][-]{paragraph.11.1.1.2}{Extrarowheight}{subsubsection.11.1.1}
+\BOOKMARK [4][-]{paragraph.11.1.1.3}{Bigstruts}{subsubsection.11.1.1}
+\BOOKMARK [3][-]{subsubsection.11.1.2}{Spaltenabstand}{subsection.11.1}
+\BOOKMARK [2][-]{subsection.11.2}{Tabulatoren}{section.11}
+\BOOKMARK [2][-]{subsection.11.3}{listliketab-Package}{section.11}
+\BOOKMARK [2][-]{subsection.11.4}{tabularx-Package}{section.11}
+\BOOKMARK [2][-]{subsection.11.5}{longtable-Package}{section.11}
+\BOOKMARK [2][-]{subsection.11.6}{ltxtable-Package}{section.11}
+\BOOKMARK [1][-]{section.12}{Farben}{}
+\BOOKMARK [2][-]{subsection.12.1}{Schrift und Hintergrund}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Farbboxen}{section.12}
+\BOOKMARK [2][-]{subsection.12.3}{Das framed-Paket}{section.12}
