@@ -11,7 +11,8 @@ den Pfad zum MikTeX-bin-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backslash
 den Pfad zum gnuplot-binary-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backslash$Program Files$\backslash$gnuplot$\backslash$binary$\backslash$}}
 	\item Im Programm TeXnicCenter eine Kommandozeilen Option hinzufügen:\\
 			\texttt{-interaction=nonstopmode} $\enspace\longrightarrow\enspace$ \texttt{--src -interaction=nonstopmode --enable-write18 "`\%Wm"'}\\
-			unter Ausgabe -> Augabeprofile definieren -> Argumente die an den Compiler übergeben werden sollen\\
+			unter Ausgabe -> Augabeprofile definieren -> Argumente die an den Compiler übergeben werden sollen
+	\item neben \textcolor{blue}{\textbackslash usepackage\{tikz\}} sollte, um möglichst viele/alle Funktionen nutzen zu können, auch noch \textcolor{blue}{\textbackslash usetikzlibrary\{automata,positioning,decorations,shadows,fadings,arrows,snakes,backgrounds,petri,shapes.geometric\}} eingebunden werden.\\
 \end{enumerate}
 
 \subsection{Verwendung von PDF-XChange Viewer und TeXnicCenter}
@@ -37,4 +38,39 @@ Nach dem Installieren von Sumatra PDF mit den Standardeinstellungen wird das Pro
 	\item Bei \textbf{Suche in Ausgabe} muss der Radiobutton bei \textcolor{red}{DDE-Kommando} gesetzt werden mit:\\ \textbf{Server:} 	\textcolor{red}{\texttt{SUMATRA}}\\\textbf{Thema:} \textcolor{red}{\texttt{Control}}\\
 			Außerdem ist das Kommando \textcolor{red}{\texttt{[ForwardSearch("'\%bm.pdf"',"'\%Wc"',\%l,0,0,0)]}} einzugeben.
 	\item Bei \textbf{Vor Kompilierung Ausgabe schließen} muss der Radiobutton bei \textcolor{red}{Nicht schließen} gesetzt werden.\\
+\end{itemize}
+
+
+\subsection{Versionierung mit GoogleCode und SVN}
+\begin{itemize}
+	\item neues Google Projekt erstellen auf der Webseite \href{http://code.google.com/hosting/}{\textcolor{blue}{http://code.google.com/hosting/}} über den Link unten:\\ \textbf{Create a new project}
+	\item TortoiseSVN (\href{http://tortoisesvn.tigris.org/}{\textcolor{blue}{http://tortoisesvn.tigris.org/}}) in Windows installieren 
+	\item zum Ein- und Auschecken wird noch das spezielle googlecode.com Passwort benötigt.\\
+			Dies ist zu finden unter: \href{https://code.google.com/hosting/settings}{\textcolor{blue}{https://code.google.com/hosting/settings}} 
+	\item im \textbf{Windows-Explorer $\lrr$ TortoiseSVN $\lrr$ Import}\\(um den ausgewählten Ordner/Datei zum Projekt hinzuzufügen)\\
+	Dabei drauf achten dass der Ordner \textbf{\texttt{trunk}} verwendet wird!
+	\item dann \textbf{SVN Auschecken} um in dem gewählten Ordner eine lokale Projekt-Version zu erzeugen
+	\item jetzt bestimmte Dateien (die zu oft bei der Bearbeitung von Tex-Dateien geändert werden) noch vom Ein-/Auschecken ausschließen:
+			\begin{itemize}
+				\item zuerst eine Datei \textit{svnignore} anlegen mit dem Inhalt:
+				\begin{verbatim}
+				*.dvi
+				*.ps
+				*.pdf
+				*.rtf
+				*.bbl
+				*.blg
+				*.aux
+				*.idx
+				*.ilg
+				*.ind
+				*.log
+				*.toc
+				*.tps				
+				\end{verbatim}
+				\item dann per Kommandozeile in dem Ordner ausführen: \textcolor{red}{\texttt{svn propset svn:ignore -F svnignore .}}
+				\item Kommandozeile mit \textcolor{red}{\texttt{exit}} wieder beenden
+			\end{itemize}
+	\item Datei \textit{svnignore} wieder löschen und das Ganze per \textbf{SVN Übertragen}, updaten
+	\item jetzt kann normal gearbeitet werden, lediglich beim \textbf{Löschen} muss dies über das TortoiseSVN-Menü geschehen (Dateien/Ordner werden dann auch erst beim nächsten SVN Update wirklich gelöscht!)
 \end{itemize}
