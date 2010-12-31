@@ -1,10 +1,31 @@
 % Eine Überschrift erster Ordnung machen
 \section{Installation}
-\subsection{MikTeX + TeXnicCenter}
+\subsection{zusätzliches Profil: LaTeX => PS => PDF}
+Wird benötigt zum Einbinden von Bilder und vor allem wenn mit dem Paket PSTricks gearbeitet wird!
+\begin{itemize}
+	\item Am besten erst \href{http://www.ghostscript.com/}{\textcolor{blue}{Ghostscript}} installieren - noch bevor TeXnicCenter installiert wird!! Dann wird das Profil automatisch erstellt!
+	\item Wurde das versäumt, dann kann man \href{http://www.ghostscript.com/}{\textcolor{blue}{Ghostscript}} auch im nachhinein installieren, muss dann aber folgende Schritte ausführen:	
+	\begin{enumerate}
+		\item Das Profil \textbf{LaTeX => PS} duplizieren
+		\item unter \textbf{Nachbearbeitung} $\lrr$ \textbf{Postprozessoren}		
+		\begin{itemize}
+			\item \textbf{DviPs} \\
+					$\lrr$ Anwendung: \textcolor{red}{\texttt{C:\textbackslash Program Files\textbackslash MiKTeX 2.8\textbackslash miktex\textbackslash bin\textbackslash dvips.exe}}\\
+					$\lrr$ Argumente: \textcolor{red}{\texttt{-t a4 "'\%Bm.dvi"'}}
+			\item \textbf{Ghostscript (ps2pdf)} hinzufügen\\
+					$\lrr$ Anwendung: \textcolor{red}{\texttt{C:\textbackslash Program Files\textbackslash MiKTeX 2.8\textbackslash miktex\textbackslash bin\textbackslash ps2pdf.exe}}\\
+					$\lrr$ Argumente: \textcolor{red}{\texttt{"'\%bm.ps"'}}
+		\end{itemize}
+		\item bei \textbf{Viewer} dann das Gleiche wie beim Profil \textbf{LaTeX => PDF} verwenden.
+	\end{enumerate}
+\end{itemize}
+
+
+\Ssp\subsection{MikTeX + TeXnicCenter}
 In den Umgebungsvariablen (System -> Erweiterte Systemeinstellungen -> Erweitert -> Umgebungsvariablen -> Path)\\
 den Pfad zum MikTeX-bin-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backslash$Program Files$\backslash$MikTeX$\backslash$miktex$\backslash$bin$\backslash$;}}
 
-\subsection{Verwendung von TikZ und TeXnicCenter}
+\Ssp\subsection{Verwendung von TikZ und TeXnicCenter}
 \begin{enumerate}
 	\item \textcolor{red}{gnuplot} downloaden und ins C-Programmverzeichnis entpacken: \href{http://www.gnuplot.info/}{\textcolor{blue}{http://www.gnuplot.info/}} 
 	\item In den Umgebungsvariablen (System -> Erweiterte Systemeinstellungen -> Erweitert -> Umgebungsvariablen -> Path)\\
@@ -12,10 +33,18 @@ den Pfad zum gnuplot-binary-Ordner hinzufügen: \textcolor{red}{\texttt{C:$\backs
 	\item Im Programm TeXnicCenter eine Kommandozeilen Option hinzufügen:\\
 			\texttt{-interaction=nonstopmode} $\enspace\longrightarrow\enspace$ \texttt{--src -interaction=nonstopmode --enable-write18 "`\%Wm"'}\\
 			unter Ausgabe -> Augabeprofile definieren -> Argumente die an den Compiler übergeben werden sollen
-	\item neben \textcolor{blue}{\textbackslash usepackage\{tikz\}} sollte, um möglichst viele/alle Funktionen nutzen zu können, auch noch \textcolor{blue}{\textbackslash usetikzlibrary\{automata,positioning,decorations,shadows,fadings,arrows,snakes,backgrounds,petri,shapes.geometric\}} eingebunden werden.\\
+	\item neben \textcolor{red}{\texttt{\textbackslash usepackage\{tikz\}}} sollte, um möglichst viele/alle Funktionen nutzen zu können, auch noch \\ \textcolor{red}{\texttt{\textbackslash usetikzlibrary\{automata,positioning,decorations,shadows,fadings,arrows,snakes,\\ backgrounds,petri,shapes.geometric\}}} eingebunden werden.\\
 \end{enumerate}
 
-\subsection{Verwendung von PDF-XChange Viewer und TeXnicCenter}
+
+\vspace*{-1em}\subsubsection{E/R-Diagramme mit TikZ}
+\begin{itemize}
+	\item hierzu wird zusätzlich \textcolor{red}{\texttt{\textbackslash usepackage\{tikz-er2\}}} benötigt
+	\item ich habe eine eigene etwas angepasste Datei die per \textcolor{red}{\texttt{\textbackslash usepackage\{C://Users/Cheffe/Documents/tikz-er2\}}} eingebunden werden muss!
+\end{itemize}
+
+
+\Ssp\subsection{Verwendung von PDF-XChange Viewer und TeXnicCenter}
 Bei Verwendung des PDF-XChange Viewer als Standard-PDF-Viewer in TeXnicCenter, können die PDF-Dokumente vor dem Kompilieren automatisch geschlossen werden:
 \begin{enumerate}
 	\item In TexnicCenter auf \textbf{Ausgabe} klicken
@@ -25,6 +54,7 @@ Bei Verwendung des PDF-XChange Viewer als Standard-PDF-Viewer in TeXnicCenter, k
 	\item \textbf{Projektausgabe betrachten} $\longrightarrow$ Kommandozeile auswählen und als Kommando \textcolor{red}{\texttt{"'\%bm.pdf"'}} eintragen 
 	\item Bei \textbf{Compilierung vor Ausgabe schließen} auch Kommandozeile auswählen und \textcolor{red}{\texttt{/close "'\%bm.pdf"'}} eintragen\\
 \end{enumerate}
+
 
 \subsection{Verwendung von SumatraPDF und TeXnicCenter (incl. SyncTeX)}
 Sumatra PDF ist ein extrem schlanker PDF-Viewer, der Änderungen an geöffneten PDF akzeptiert und sogar Vorwärts- und Rückwärtssuche untestützt, d.h. das Springen zwischen entsprechenden Stellen in der PDF-Ausgabe und dem Quellcode.\\
@@ -41,10 +71,10 @@ Nach dem Installieren von Sumatra PDF mit den Standardeinstellungen wird das Pro
 \end{itemize}
 
 
-\subsection{Versionierung mit GoogleCode und SVN}
+\Ssp\subsection{Versionierung mit GoogleCode und SVN}
 \begin{itemize}
 	\item neues Google Projekt erstellen auf der Webseite \href{http://code.google.com/hosting/}{\textcolor{blue}{http://code.google.com/hosting/}} über den Link unten:\\ \textbf{Create a new project}
-	\item TortoiseSVN (\href{http://tortoisesvn.tigris.org/}{\textcolor{blue}{http://tortoisesvn.tigris.org/}}) in Windows installieren 
+	\item \href{http://tortoisesvn.tigris.org/}{\textcolor{blue}{TortoiseSVN}} in Windows installieren 
 	\item zum Ein- und Auschecken wird noch das spezielle googlecode.com Passwort benötigt.\\
 			Dies ist zu finden unter: \href{https://code.google.com/hosting/settings}{\textcolor{blue}{https://code.google.com/hosting/settings}} 
 	\item im \textbf{Windows-Explorer $\lrr$ TortoiseSVN $\lrr$ Import}\\(um den ausgewählten Ordner/Datei zum Projekt hinzuzufügen)\\

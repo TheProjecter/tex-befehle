@@ -1,9 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Installation}{}
-\BOOKMARK [2][-]{subsection.1.1}{MikTeX + TeXnicCenter}{section.1}
-\BOOKMARK [2][-]{subsection.1.2}{Verwendung von TikZ und TeXnicCenter}{section.1}
-\BOOKMARK [2][-]{subsection.1.3}{Verwendung von PDF-XChange Viewer und TeXnicCenter}{section.1}
-\BOOKMARK [2][-]{subsection.1.4}{Verwendung von SumatraPDF und TeXnicCenter \(incl. SyncTeX\)}{section.1}
-\BOOKMARK [2][-]{subsection.1.5}{Versionierung mit GoogleCode und SVN}{section.1}
+\BOOKMARK [2][-]{subsection.1.1}{zus\344tzliches Profil: LaTeX => PS => PDF}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{MikTeX + TeXnicCenter}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Verwendung von TikZ und TeXnicCenter}{section.1}
+\BOOKMARK [3][-]{subsubsection.1.3.1}{E/R-Diagramme mit TikZ}{subsection.1.3}
+\BOOKMARK [2][-]{subsection.1.4}{Verwendung von PDF-XChange Viewer und TeXnicCenter}{section.1}
+\BOOKMARK [2][-]{subsection.1.5}{Verwendung von SumatraPDF und TeXnicCenter \(incl. SyncTeX\)}{section.1}
+\BOOKMARK [2][-]{subsection.1.6}{Versionierung mit GoogleCode und SVN}{section.1}
 \BOOKMARK [1][-]{section.2}{Indexregister erstellen}{}
 \BOOKMARK [1][-]{section.3}{Abst\344nde}{}
 \BOOKMARK [2][-]{subsection.3.1}{Horizontale Abst\344nde}{section.3}
