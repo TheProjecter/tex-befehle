@@ -1,5 +1,30 @@
 \newpage
 \section{Farben}
+
+\subsection{Standard-Farben}
+\begin{table}[!htb]
+\centering
+\begin{tabular}{*{5}{rp{1.5cm}}}
+\colbox{black} & black  & \colbox{darkgray} & darkgray &  \colbox{lime} & lime & \colbox{pink} & pink & \colbox{violet} & violet\\
+\colbox{blue} & blue & \colbox{gray} & gray & \colbox{magenta} & magenta & \colbox{purple} & purple & \colbox{white} & white \\ 
+\colbox{brown} & brown & \colbox{green} & green & \colbox{olive} & olive & \colbox{red} & red & \colbox{yellow} & yellow \\ 
+\colbox{cyan} & cyan & \colbox{lightgray} & lightgray & \colbox{orange} & orange & \colbox{teal} & teal &  &  \\ 
+\end{tabular} 
+\caption{Standardfarben}\label{tab:tab5}
+\end{table}
+\Sspa Diese Farben sind immer verfügbar!
+
+
+
+\subsection{Zusatzfarben}
+Diese Farben sind über die \textsf{\textit{svgnames}} Option des \textsf{\textit{xcolor}} Paketes zusätzlich verfügbar:
+\einruck{\textcolor{blue}{\tt \bck usepackage[svgnames]\{xcolor\}}}
+\ssp
+\LTXtable{\textwidth}{LongTabFarb.tex}
+
+
+
+
 \subsection{Schrift und Hintergrund}
 \begin{itemize}
 	\item \texttt{$\backslash$ color\{red\}:} \color{red} Der folgende Text ist rot bis zum nächsten Farbwechsel.\color{black}

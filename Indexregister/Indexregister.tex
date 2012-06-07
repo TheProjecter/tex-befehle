@@ -1,14 +1,267 @@
-\section{Indexregister erstellen}
+\section{Aufbau und Organisation}
+
+\subsection{Dokumentklassen}
+\begin{table}[!htb]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{.75\textwidth}{|lX|}
+\hline
+\rowcolor[gray]{.6}
+Klassenname & Zielsetzung\\
+\hline
+{\tt book} & Komplette Bücher mit Kapitelgliederung\\
+\rowcolor{lightgray}
+{\tt report} & Längere Berichte mit Kapitelgliederung, z.B. technischer Bericht oder Diplomarbeiten\\
+\rowcolor{white}
+{\tt article} & Artikel in wissenschaftlichen Zeitschriften oder kürzere Berichte mit Abschnittsgliederung\\
+\rowcolor{lightgray}
+{\tt letter} & Briefe\\
+\rowcolor{white}
+{\tt scrbook} & Europäsisierte Variante von {\tt book} (KOMA-Script Paket)\\
+\rowcolor{lightgray}
+{\tt scrreprt} & Europäsisierte Variante von {\tt report} (KOMA-Script Paket)\\
+\rowcolor{white}
+{\tt scrartcl} & Europäsisierte Variante von {\tt article} (KOMA-Script Paket)\\
+\hline
+\end{tabularx}
+\caption[Dokumentklassen der Präambel]{Auswahl an \LaTeX -Dokumentklassen}\label{tab:tab1}
+\end{table}
+Daneben gibt es noch zahlreiche Varianten zur Erzeugung von Overheadfolien und Beamerpräsentationen.
+
+
+
+
+\subsection{Logische Gliederung}
+\begin{table}[!htb]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{.5\textwidth}{|XX|}
+\hline
+\rowcolor[gray]{.6}
+{\tt book}, {\tt report} & {\tt article}\\
+\hline
+\textbf{\tt \bck chapter} &  \\
+\rowcolor{lightgray}
+\textbf{\tt \bck section} & \textbf{\tt \bck section}\\
+\textbf{\tt \bck subsection} & \textbf{\tt \bck subsection}\\
+\rowcolor{lightgray}
+\textbf{\tt \bck subsubsection} & \textbf{\tt \bck subsubsection}\\
+\textbf{\tt \bck paragraph} & \textbf{\tt \bck paragraph}\\
+\rowcolor{lightgray}
+\textbf{\tt \bck subparagraph} & \textbf{\tt \bck subparagraph}\\
+\hline
+\end{tabularx}
+\caption[Gliederungsbefehle zur logischen Strukturierung]{Gliederungsbefehle in hierarchischer Anordnung}\label{tab:tab2}
+\end{table}
+
+\begin{description}
+\item[\textcolor{blue}{\tt \bck section[\textit{Kurztitel}]\{Titel\}}] $\lrr$ verwendet \textit{Kurztitel} im Inhaltsverzeichnis
+\item[\textcolor{blue}{\tt \bck section*\{Titel\}}] $\lrr$ erzeugt eine unnummerierte Überschrift ohne Eintrag in das Inhaltsverzeichnis
+\item[\textcolor{blue}{\tt \bck setcounter\{secnumdepth\}\{4\}}] $\lrr$ eine Erhöhung dieser Zahl bewirkt die Nummerierung der nächsttieferen Gliederungsebenen, da die Nummerierung gewöhnlich nur bis zur Ebene \textbf{\tt \bck subsubsection} ($\igl$3) statt findet.
+\item[\textcolor{blue}{\tt \bck part\{\textit{Name des Dokumentteils}\}}] $\lrr$ zerteilt ein Dokument in (große) Teile ohne Auswirkung auf die Nummerierung.
+\end{description}
+
+
+\subsubsection{weitere Gliederungsbefehle für Bücher}
+\begin{description}
+\item[\textcolor{blue}{\tt \bck frontmatter}] $\lrr$ Buchanfang: Seiten erhalten römische Ziffern und Abschnitte haben keine Nummern
+\item[\textcolor{blue}{\tt \bck mainmatter}] $\lrr$ wird vor dem ersten Kapitel verwendet: Seitennummerierung
+wird zurückgesetzt und mit arabischen Ziffern ausgegeben
+\item[\textcolor{blue}{\tt \bck appendix}] $\lrr$ Beginn des Anhangs: Nummerierung der Kapitel
+wird dann auf fortlaufende Buchstaben umgeändert
+\item[\textcolor{blue}{\tt \bck backmatter}] $\lrr$ das Ende des eigentlichen Buches, worauf üblicherweise
+das Literaturverzeichnis und das Stichwortverzeichnis folgen
+\end{description}
+
+
+
+\subsection{Querverweise, Label}
+\begin{description}
+\item[\textcolor{blue}{\tt \bck label\{\textit{Markierung}\}}] $\lrr$ erzeugt eine unsichtbare \textit{Markierung} (Label) im Dokument
+\item[\textcolor{blue}{\tt \bck ref\{\textit{Markierung}\}}] $\lrr$ nimmt Bezug auf das referenzierte Element, gibt die \textbf{Nummer} von \textit{Markierung} aus!
+\item[\textcolor{blue}{\tt \bck pageref\{\textit{Markierung}\}}] $\lrr$ gibt die \textbf{Seitenzahl} aus, auf der die \textit{Markierung} liegt
+\end{description}
+
+\Ssp Markierbar und damit zitierbar sind nur bestimmte Elemente:
+\begin{itemize}
+\item Gliederungsbefehle ({\tt \bck section\{Titel\}}, {\tt \bck chapter\{Titel\}}, ...)
+\item Tabellen und Abbildungen in Gleitumgebungen ({\tt \bck begin\{table\}}, {\tt \bck begin\{figure\}})
+\item mathematische Formeln
+\item mathematische Definitionen, Sätze, Theoreme usw.
+\item Elemente die nicht markierbar wären kann man durch eine Phantomsection ebenfalls markieren:\\
+		\textcolor{blue}{\tt \bck phantomsection}\\
+		\textcolor{blue}{\tt \bck label\{\textit{key1}\}}
+\end{itemize}
+
+\Ssp \textit{Markierung} dient dabei als \textbf{eindeutiger Bezeichner} und sollte dem Strukturelement entsprechend genannt werden, für das sie verwendet wird:
+\begin{itemize}
+\item \textcolor{blue}{\tt \bck chapter\{\textcolor{red}{Foo}\}\bck label\{\textcolor{red}{cha:foo}\}}
+\item \textcolor{blue}{\tt \bck section\{\textcolor{red}{Baa}\}\bck label\{\textcolor{red}{sec:baa}\}}
+\item \textcolor{blue}{\tt \bck subsection\{\textcolor{red}{Buzz}\}\bck label\{\textcolor{red}{ssec:buzz}\}}
+\item \textcolor{blue}{\tt \bck begin\{\textcolor{red}{table}\}\bck label\{\textcolor{red}{tab:boom}\}\bck end\{table\}}
+\end{itemize}
+
+
+
+
+\subsection{Indexregister}
 \begin{itemize}
 	\item \textcolor{blue}{\tt \textbackslash usepackage\{makeidx\}}
 	\item \textcolor{blue}{\tt \textbackslash makeindex}
-	\item beides direkt untereinander und noch vor dem Begin des Dokuments!
-	\item Einfügen von \textcolor{red}{\tt \textbackslash printindex} vor dem Dokument-Ende (bzw. an der Stelle, wo das Indexregister erscheinen soll)
+	\item beides direkt untereinander und noch vor dem Beginn des Dokuments!
+	\item Einfügen von \textcolor{blue}{\tt \textbackslash printindex} vor dem Dokument-Ende (bzw. an der Stelle, wo das Indexregister erscheinen soll)
 	\item An den Stellen/Wörtern, die in den Index eingetragen werden sollen, folgendes anfügen:\\
-			\textcolor{red}{\tt \textbackslash index\{Indexeintrag\_bzw\_Wort\}}
-	\item oder \textcolor{red}{\tt \textbackslash index\{Eintrag!Untereintrag\}}
-	\item \textcolor{red}{\tt \textbackslash index\{Virtuell@Eintrag\}}\\
+			\textcolor{blue}{\tt \textbackslash index\{Indexeintrag\_bzw\_Wort\}}
+	\item oder \textcolor{blue}{\tt \textbackslash index\{Eintrag!Untereintrag\}}
+	\item \textcolor{orange}{\tt \textbackslash index\{Virtuell@Eintrag\}}\\
 			Virtuelle Einträge sind notwendig, um Sonderzeichen oder mathematische Symbole in den Index einzuordnen\\
 			\textcolor{orange}{\tt \textbackslash index\{wunschenswert@wünschenswert\}}\\
 			\textcolor{orange}{\tt \textbackslash index\{R@\textbackslash R\}}
+	\item um statt \textit{Index} ein anderes Wort zu verwenden:\\
+			\textcolor{blue}{\tt \bck renewcommand\{\bck indexname\}\{anderes\_Wort\}}
+	\item um das \textit{Indexregister} in das \textit{Inhaltsverzeichnis} mit aufzunehmen:\\
+			\textcolor{blue}{\tt \bck addcontentsline\{toc\}\{section\}\{\bck indexname\}}
+	\item diese beiden Befehle am besten dann direkt vor \textcolor{blue}{\tt \bck printindex} am Ende des Dokuments
+	\item es muss ein extra Compilier-Durchlauf mit \textcolor{red}{\tt makeindex \%.idx} stattfinden!!
+\end{itemize}
+
+\subsubsection{Index mit richtigen Seitenzahlen}
+Um zu verhindern das im Inhaltsverzeichnis für den Index falsche Seitenzahlen auftauchen müssen die folgenden beiden Befehle vor \textcolor{blue}{\tt \bck printindex} am Ende des Dokumentes eingefügt werden:
+\einruck{\textcolor{blue}{\tt \bck clearpage\\\bck phantomsection}}
+
+
+\subsubsection{Index mit richtigem Seitenlayout}
+Um auch beim Index das gleiche Seitenlayout wie bei allen anderen (vorherigen) Seiten zu behalten muss bei der Definition der Kopf- und Fußzeilen, nach \textcolor{blue}{\tt \bck pagestyle\{scrheadings\}} noch folgende Zeile eingefügt werden:
+\einruck{\textcolor{blue}{\tt \bck renewcommand*\{\bck indexpagestyle\}\{scrheadings\}}}
+
+
+\subsection{Glossar}
+\subsubsection{Präambel bzw. Header}
+\begin{itemize}
+	\item \textcolor{blue}{\tt \bck usepackage[nonumberlist,toc,section,numberline,translate=false]\{glossaries\}}
+	\item \textcolor{red}{\textbf{Das Paket muss unbedingt erst NACH den folgenden Paketen geladen werden!!}}
+	\begin{itemize}
+		\item html
+		\item inputenc
+		\item babel
+		\item ngerman
+		\item \textcolor{red}{\textbf{hyperref !!!}}
+	\end{itemize}
+	\item Die Bedeutung der einzelnen Paket-Optionen:
+		\begin{itemize}
+			\item \textcolor{blue}{\tt nonumberlist} $\igl$ um zu verhindern, dass im Glossar nach den einzelnen Beschreibungen noch Seitenzahlen angezeigt werden
+			\item \textcolor{blue}{\tt toc} $\igl$ Glossar im Inhaltsverzeichnis anzeigen lassen
+			\item \textcolor{blue}{\tt section} $\igl$ im Inhaltsverzeichnis auf der Section-Ebene erscheinen lassen
+			\item \textcolor{blue}{\tt numberline} $\igl$ richtet den Eintrag im Inhaltsverzeichnis nicht an den Section-Nummern sondern an den Section-Namen aus! (also etwas eingerückt)
+			\item \textcolor{blue}{\tt translate=false} $\igl$ für die eigene Umbenennung von \grqq Glossary\grqq\; (siehe gleich hier drunter)
+		\end{itemize}
+	\item direkt darunter um \grqq Glossary\grqq\; letztendlich in (z.B.) \grqq Glossar\grqq\; umzubenennen:\\ 
+			\textcolor{blue}{\tt \bck renewcommand*\{\bck glossaryname\}\{Glossar\}}
+	\item direkt danach:\\ 
+			\textcolor{blue}{\tt \bck makeglossaries}
+	\item wie beim Indexregister am besten alles untereinander, vor Beginn des Dokuments aber nach dem Indexregister!!
+	\item Einfügen von \textcolor{blue}{\tt \bck printglossaries} vor dem Dokument-Ende (bzw. an der Stelle, wo das Glossar erscheinen soll)
+	\item um zu Verhindern, das am Ende jeder Beschreibung ein Punkt erscheint:\\
+			\textcolor{blue}{\tt \bck renewcommand*\{\bck glspostdescription\}\{\}}
+\end{itemize}
+
+\subsubsection{Verwendung}
+\begin{itemize}
+	\item um einen neuen Glossar-Eintrag zu erstellen (am besten in der Präambel - hinter \textit{\tt usepackage}):\\
+			\textcolor{blue}{\tt \bck newglossaryentry\{abk\}\{name=Abkürzung, description=\{blahbla\}\}}
+	\item Verwendung der Glossar-Einträge im (Haupt-)Text:
+		\begin{itemize}
+			\item \textcolor{blue}{\tt \bck glspl\{abk\}}\\
+					fügt \textit{Abkürzung\textbf{s}} mit Verlinkung zum Eintrag im Glossar ein (falls das \textit{hyperref Package} verwendet wird)
+			\item \textcolor{blue}{\tt \bck gls\{abk\}}\\
+					fügt \textit{Abkürzung} \textbf{ohne} Plural aber auch mit Verlinkung ein
+			\item \textcolor{blue}{\tt \bck Gls\{abk\}}\\
+								fügt \textit{Abkürzung} mit beginnendem Großbuchstaben ein (für einen Satzanfang)
+			\item \textcolor{blue}{\tt \bck Glspl\{abk\}}\\
+								fügt \textit{Abkürzung\textbf{s}} mit beginnendem Großbuchstaben ein
+			\item \textcolor{blue}{\tt \bck GLS\{abk\}}\\
+								fügt \textit{ABKÜRZUNG} komplett in Kapitälchen ein
+			\item \textcolor{blue}{\tt \bck glsentrytext\{abk\}}\\
+								\textcolor{red}{für die Verwendung in besonderen Bereichen wie: \bck chapter, \bck section, \bck caption} - wird nicht verlinkt!!
+		\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Vorraussetzungen und Compilierung}
+\begin{enumerate}
+	\item \textbf{Perl} muss installiert sein!! z.B. \href{http://strawberryperl.com/}{\textcolor{blue}{Strawberry Perl}}
+	\item Die Datei \textbf{makeglossaries.bat} (\textcolor{red}{\tt C:\bck Program Files\bck MiKTeX\bck scripts\bck glossaries}) muss geändert werden:\\
+			statt \grqq {\tt perl}\grqq\; muss der Pfad zur \underbar{Perl.exe} dort eingetragen werden, z.B. \textcolor{red}{\tt \grqq C:\bck strawberry\bck perl\bck bin\bck perl.exe\grqq}
+	\item Bei der \textbf{Compilierung} der PDF muss ein weiterer Durchlauf (nach {\tt makeindex}) hinzugefügt werden:\\
+			\textcolor{red}{\tt "C:/Program Files/MiKTeX/scripts/glossaries/makeglossaries.bat"\;\%}
+\end{enumerate}
+
+
+
+
+\subsection{Abkürzungsverzeichnis}
+\begin{itemize}
+	\item \textcolor{blue}{\tt \bck usepackage[\textbf{\underbar{acronym}}]\{glossaries\}} muss in der Optionen-Liste enthalten sein!
+	\item Definition von Abkürzungen: \textcolor{blue}{\tt \bck newacronym\{PD\}\{PDF\}\{Portable Dokument Format\}}
+	\item Verwendung: \textcolor{blue}{\tt \bck gls\{PD\}} $\rar$ im Text erscheint \grqq PDF\grqq\; mit Verlinkung auf das Abkürzungsverzeichnis
+	\item das Abkürzungsverzeichnis wird automatisch mit dem Glossar durch Verwendung von \textcolor{blue}{\tt makeglossaries} erstellt
+	\item deutsche Umbenennung: \textcolor{blue}{\tt \bck renewcommand*\{\bck acronymname\}\{Abkürzungsverzeichnis\}}
+\end{itemize}
+
+
+
+\subsection{Symbolverzeichnis}
+\begin{itemize}
+	\item \textcolor{blue}{\tt \bck newglossary[slg]\{symblist\}\{syi\}\{syg\}\{Symbolverzeichnis\}} muss noch vor \textcolor{blue}{\tt makeglossaries} stehen!!
+	\item Definition: \textcolor{blue}{\tt \bck newglossaryentry\{symb:Pi\}\{name=\$\bck pi\$, description=\{Die Kreiszahl.\}, sort=symbolpi, type=symblist\}}
+	\item Verwendung: \textcolor{blue}{\tt \bck gls\{symb:Pi\}}
+	\item Die Einträge der Symbolliste sollten immer einen \textit{sort}-Eintrag bekommen, wobei auf den gleichen Anfangsbuchstaben zu achten ist, um die Leerräume zwischen den gruppierten Einträgen zu vermeiden.
+\end{itemize}
+
+
+\subsection{Literaturverzeichnis}
+\begin{itemize}
+	\item eine \textcolor{red}{\tt .bib}-Datei muss erzeugt werden / worden sein (z.B. durch Citavi-Export)
+	\item in der Präambel / Header einzufügen:\\
+			\textcolor{blue}{\tt \bck usepackage[square]\{natbib\}}\\
+			\textcolor{blue}{\tt \bck bibliographystyle\{natdin\}}
+	\item in der BA/SA wird statt dessen folgendes verwendet:\\
+				\textcolor{blue}{\tt \bck usepackage\{bibgerm\}}\\
+				\textcolor{blue}{\tt \bck bibliographystyle\{geralpha\}}\\
+				\textcolor{red}{es wird dann auch nur {\tt \bck cite} ohne \grqq p\grqq\, verwendet!!}
+	\item vor \textcolor{blue}{\tt \bck end\{document\}} einfügen:\\
+			\textcolor{blue}{\tt \bck addcontentsline\{toc\}\{section\}\{Literatur\}}\\
+			... um das Literaturverzeichnis	im Inhaltsverzeichnis aufzuführen\\
+			\textcolor{blue}{\tt \bck bibliography\{DATEINAME\}}\\
+						... DATEINAME der \textcolor{red}{\tt .bib}-Datei um das Literaturverzeichnis einzufügen
+	\item Verwendung: generell ist der Teil aus der \textcolor{red}{\tt .bib}-Datei zu verwenden, der nach der ersten \{-Klammer folgt: \textcolor{red}{\tt @article\{Koomey2011b,}\; $\rar$ also \textcolor{red}{\tt Koomey2011b}
+	\begin{itemize}
+		\item \textcolor{blue}{\tt \bck citep\{Koomey2011b\}} $\lrr$ \textbf{\tt [Koomey u.a., 2011]}
+		\item \textcolor{blue}{\tt \bck citep\{Koomey2011b\}} $\lrr$ \textbf{\tt [Koomey, 2011]}
+		\item \textcolor{blue}{\tt \bck citep[chap.\~\,2]\{Koomey2011b\}} $\lrr$ \textbf{\tt [Koomey, 2011, chap. 2]}
+		\item \textcolor{blue}{\tt \bck citep[siehe][]\{Koomey2011b\}} $\lrr$ \textbf{\tt [siehe Koomey, 2011]}
+		\item \textcolor{blue}{\tt \bck citep\{Koomey2011, Koomey2011b\}} $\lrr$ \textbf{\tt [Koomey, 2011; Koomey u.a., 2011]}
+		\item \textcolor{blue}{\tt \bck nocite\{Koomey2011\}} $\lrr$ fügt den Eintrag zum Literaturverzeichnis hinzu ohne eine Referenz im Text dafür zu erstellen!
+	\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Literaturtypen und zugehörige Felder}
+Für die unterschiedlichen Literaturtypen sind jeweils verschiedene Felder benötigt bzw. optional. Hier ein Überblick:
+\renewcommand{\arraystretch}{1.2}
+\LTXtable{\textwidth}{LongTab.tex}
+
+
+
+
+\subsection{Abbildungs- und Tabellenverzeichnis}
+\begin{itemize}
+	\item um eines von beiden oder auch beide Verzeichnisse in das Inhaltsverzeichnis mit aufzunehmen, muss in die Optionen von \textcolor{blue}{\tt \bck documentclass[...]\{...\}} folgendes eingefügt werden:\\
+			\textcolor{red}{\tt toc=listof}	
+	\item An der Stelle im Dokument wo eines der beiden Verzeichnisse entstehen soll, muss eingefügt werden:\\
+			\textcolor{blue}{\tt \bck listoftables}
+			\textcolor{blue}{\tt \bck listoffigures}
+	\item Verwendung: in \textcolor{red}{\tt table} oder \textcolor{red}{\tt figure}-Gleitumgebungen durch den \textcolor{blue}{\tt \bck caption} Befehl:\\
+			\textcolor{blue}{\tt \bck  caption[Kurzbeschr.-die-im-VZ-erscheint]\{Tabellen-oder-Abbildungs-Unterschrift\}\bck label\{tab:tble2 | fig:figu2\}}
 \end{itemize}

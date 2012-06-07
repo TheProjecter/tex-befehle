@@ -1,11 +1,13 @@
-\documentclass[a4paper, 10pt, DIV15, parskip=half-]{scrartcl}  % halfparskip = halbzeiliger Absatzabstand
+\documentclass[a4paper, 10pt, DIV15, toc=listof, parskip=half-]{scrartcl}  
+% halfparskip : halbzeiliger Absatzabstand
+% toc=listof  : Fügt das Abbildungs- und Tabellenverzeichis ins Inhaltsverzeichnis ein 
 
 \listfiles
 
 \usepackage[ngerman]{babel}
 
 \usepackage[T1]{fontenc}
-
+%\usepackage[utf8]{inputenc}
 \usepackage[latin1]{inputenc}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,11 +61,18 @@
 \usepackage{txfonts} 				% für die mathematischen Symbole für 'Nicht-Element-von'
 \usepackage{ulsy}						% für Widerspruchsblitze
 
+% für das Euro-Symbol -> \euro
+\usepackage{eurosym}
+
 % um Tabulatoren in Listen verwenden zu können
 \usepackage{listliketab}
 
 % um Tabellen fester Gesamtbreite definieren zu können
 \usepackage{tabularx}
+% für lange Tabellen: longtable + tabularX
+\usepackage{ltxtable}
+% um Farbe in Tabellen bringen zu können
+\usepackage{colortbl}
 
 % für mehrseitige Tabellen
 \usepackage{longtable}
@@ -74,6 +83,14 @@
 % um Graphen zu "zeichnen"
 \usepackage{tikz}
 \usetikzlibrary{automata,positioning,decorations,shadows,fadings,arrows,snakes,backgrounds,petri,shapes.geometric}
+
+% für die Beschriftung von Gleitobjekten
+\usepackage[format=hang, font={footnotesize,sf}, labelfont={bf}, margin=1cm, aboveskip=5pt, position=bottom]{caption}
+
+% fuer Zitate
+\usepackage{bibgerm}
+% Festlegung Art der Zitierung
+\bibliographystyle{alphadin}
 
 
 \usepackage{C://Users/Cheffe/Dropbox/myown}
@@ -102,7 +119,7 @@
 \setfootsepline{0.5pt} % Dicke der Trennlinie Fusszeile - Text
 
 \pagestyle{scrheadings}	% gemachte Einstellungen anwenden
-
+\renewcommand*{\indexpagestyle}{scrheadings} % die Seiteneinstellungen auch für die Indexseite anwenden !!
 
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -116,6 +133,9 @@
 
 
 
+% um ein Indexregister erstellen zu können
+\usepackage{makeidx} 
+
 
 % ganz zum Schluss noch das Paket für Links und Verlinkungen
 \usepackage{hyperref}
@@ -125,21 +145,41 @@ pdfauthor={Christian Schwabe},
 pdfpagelayout=SinglePage,
 breaklinks=true,
 colorlinks=true,
-linkcolor=black,
-anchorcolor=rblack,
-citecolor=black,
+linkcolor=red,
+anchorcolor=green,
+citecolor=orange,
 filecolor=black,
 menucolor=black,
 pagecolor=black,
-urlcolor=black 
+urlcolor=blue 
 }
+
+% für die Erstellung eines Glossars, ...
+\usepackage[nonumberlist,toc,section,translate=false,acronym]{glossaries}
+\renewcommand*{\glossaryname}{Glossar}
+\renewcommand*{\acronymname}{Abkürzungsverzeichnis}
+% Ein eigenes Symbolverzeichnis erstellen
+\newglossary[slg]{symblist}{syi}{syg}{Symbolverzeichnis}
+% Den Punkt am Ende jeder Beschreibung deaktivieren
+\renewcommand*{\glspostdescription}{}
+
+
+
+
+\newcommand{\colbox}[1]{\fcolorbox{black}{#1}{\color{#1}\rule[.4mm]{.8cm}{1.6mm}}}
+
+
+
+
+
+\makeglossaries
+\makeindex 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %+++ hier beginnt das eigenliche Dokument +++++++++++++++++++++++++
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{document}
-
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %+++ Titelseite +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -172,28 +212,32 @@ urlcolor=black
 %+++ Text +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \include{Installation/Installation}
-
 \include{Indexregister/Indexregister}
-
 \include{Abstaende/Abstaende}
-
 \include{Mathematische_Symbole/Mathematische_Symbole}
-
 \include{Operatoren/Operatoren}
-
 \include{Mathematische_Elemente/Mathematische_Elemente}
-
 \include{Programmcode/Programmcode}
-
 \include{Textformatierung/Textformatierung}
-
 \include{Listen_und_Aufzaehlungen/Listen_und_Aufzaehlungen}
-
 \include{Eigene_Kommandos/Eigene_Kommandos}
-
 \include{Tabellen/Tabellen}
-
+\include{Grafiken/externeBilder}
 \include{Farben/Farben}
 
 
+
+%\printglossaries
+%\clearpage
+%\phantomsection
+%\renewcommand{\indexname}{Stichwortverzeichnis} % Umbenennen von Index in Stichwortverzeichnis
+%\addcontentsline{toc}{section}{\indexname}
+%\printindex
+
+\listoftables
+%\listoffigures
+
+% Literaturliste soll im Inhaltsverzeichnis auftauchen
+%\addcontentsline{toc}{section}{Literatur}
+%\bibliography{Tex_Befehle_Projekt}
 \end{document}
