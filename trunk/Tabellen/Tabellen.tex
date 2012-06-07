@@ -196,3 +196,89 @@ sitzt 'ne kleine Wanze
 \end{document}
 \end{verbatim}
 \color{black}
+
+
+
+\subsection{\textsf{caption} bei longtable und ltxtable}
+Normalerweise ist es etwas schwer bis unmöglich diese beiden Arten in eine Gleitumgebung einzubetten um so eine Tabellenbeschreibung drunter zu setzen. Dies lässt sich aber auch ohne eine Gleitumgebung, durch dieses Konstrukt realisieren:
+\einruck{ \textcolor{blue}{\tt \textbf{\bck begin}\{longtable\}\{Format\}} \\ \textcolor{blue}{\tt \bck caption\{mein-Text\}\bck label\{tab:LV1\}\textbf{\bck endlastfoot}}}
+
+
+
+
+
+\subsection{Einfärben von Tabellen(-zellen)}
+\einruck{\textcolor{blue}{\tt \bck usepackage\{colortbl\}}}
+\begin{LTXexample}[pos=l, rframe={}, width=.4]
+\storestyleof{enumerate}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{.95\textwidth}{|XX|}
+\hline
+\rowcolor[gray]{.6}
+{\tt book}, {\tt report} & {\tt article}\\
+\hline
+\textbf{\tt \bck chapter} &  \\
+\rowcolor{lightgray}
+\textbf{\tt \bck section} & \textbf{\tt \bck section}\\
+\textbf{\tt \bck subsection} & \textbf{\tt \bck subsection}\\
+\rowcolor{lightgray}
+\textbf{\tt \bck subsubsection} & \textbf{\tt \bck subsubsection}\\
+\textbf{\tt \bck paragraph} & \textbf{\tt \bck paragraph}\\
+\rowcolor{lightgray}
+\textbf{\tt \bck subparagraph} & \textbf{\tt \bck subparagraph}\\
+\hline
+\end{tabularx}
+\end{LTXexample}
+
+
+
+\subsection{Gleitobjekte}
+\textit{Tabellen} und \textit{Abbildungen} sind oft größere Boxen, die sich nur mühsam so in einem Text anordnen lassen, dass keine häßlichen Leerräume auf Seiten entstehen. In den meisten Publikationen sind Tabellen und Bilder daher nicht unbedingt genau an dem Platz, an dem sie angesprochen werden, sondern befinden sich häufig zu Beginn oder am Ende einer Seite. Typischerweise gibt es durchnummerierte Bild- bzw. Tabellenbeschreibungen, die dann zitiert werden können.
+\begin{table}[!htb]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{.75\textwidth}{|cX|}
+\hline
+\rowcolor[gray]{.6}
+Option & Bedeutung\\
+\hline
+{\tt h} & Versuche, das Objekt an genau dieser Stelle zu platzieren\\
+\rowcolor{lightgray}
+{\tt t} & Versuche, das Objekt am Seiten\textbf{kopf} zu platzieren\\
+{\tt b} & Versuche, das Objekt am Seiten\textbf{ende} zu platzieren\\
+\rowcolor{lightgray}
+{\tt p} & Versuche, das Objekt auf einen eigenen Gleitobjektseite zu platzieren\\
+{\tt !} & Die Versuche sollen ohne große Rücksichtnahme auf \LaTeX-Steuerungsgrößen durchgeführt werden (erhöht die Wahrscheinlichkeit, dass das Gleitobjekt an der vermuteten Stelle gesetzt wird)\\
+\hline
+\end{tabularx}
+\caption[Platzierungsoptionen von Gleitobjekten]{Optionen zum Platzieren von Gleitobjekten}\label{tab:tab3}
+\end{table}
+
+\LaTeX\, unterstützt die Erstellung solcher Gleitobjekte, die nicht notwendig an der Stelle erscheinen, an der sie im Quelltext stehen. Statt dessen bemüht sich \LaTeX, diese Objekte an \grqq günstige\grqq\, Stellen gleiten zu lassen.\\
+
+\sspa Gleitende Tabellen werden erzeugt durch die Umgebung:\\
+\textcolor{blue}{\tt \textbf{\bck begin}\{table\}[\textit{Optionen}] \textit{Gleitender Tabelleninhalt} \textbf{\bck end}\{table\}}\\
+
+\sspa Gleitende Abbildungen werden erzeugt durch die Umgebung:\\
+\textcolor{blue}{\tt \textbf{\bck begin}\{figure\}[\textit{Optionen}] \textit{Gleitender Abbildungsinhalt} \textbf{\bck end}\{figure\}}\\
+
+Durch \grqq \textcolor{red}{!}\grqq\, kann man \LaTeX\, anweisen, die Platzierung möglichst rasch unter Verletzung interner Vorgaben vorzunehmen, z.B.
+\einruck{\textcolor{cyan}{\tt \textbf{\bck begin}\{table\}[!htb]}}
+Die Reihenfolge ist nicht entscheidend, sondern nur \textit{ob} eine der Optionen gesetzt ist!\\
+Wenn ein Gleitobjekt nicht auf der aktuellen Seite platziert werden konnte, so wird es in eine interne Liste gesteckt. Auf jeder neuen Seite versucht \LaTeX, die Objekte aus der Liste zu verwenden. Blockiert ein Objekt diese Liste, so kann sich ein Stau aus Gleitobjekten bilden. Ein solcher Stau lässt sich durch einen \grqq gewaltsamen\grqq\, Seitenumbruch mit \textcolor{red}{\tt \bck clearpage} bzw. \textcolor{red}{\tt \bck cleardoublepage} bereinigen, da hierbei alle Gleitobjekte der Liste ausgegeben werden.
+
+
+\subsubsection{Beschriftung von Gleitobjekten}
+Beschriftungstexte werden über den Befehl
+\einruck{\textcolor{blue}{\tt \textbf{\bck caption}[\textit{Kurztext}]\{\textit{Beschreibungstext}\}}}
+erstellt. Der optionale \textit{Kurztext} dient bei langen Beschreibungen als Abkürzung in Inhaltsverzeichnissen. Diese Beschriftung wird automatisch nummeriert und kann mit einem \textcolor{blue}{\tt \textbf{\bck label}}-Befehl versehen werden.
+\einruck{\textcolor{cyan}{\tt \textbf{\bck caption}\{Beispieltabelle\}\textbf{\bck label}\{tab:gleittabelle\}}}
+
+
+
+\subsubsection{Anpassung der Beschriftungen}
+Statt normale Textschrift zu verwenden, kann man z.B. eine kleinere und serifenfreie verwenden, um diese Beschriftung vom Resttext abzuheben. Diese und andere Änderungen lassen sich mit dem \textcolor{red}{Paket \texttt{\textsf{caption}}} vornehmen.
+\einruck{\textcolor{blue}{\tt \textbf{\bck usepackage}\{caption\}}}
+Eine gutes Beispiel:
+\einruck{\textcolor{cyan}{\tt \textbf{\bck usepackage}[format=hang, font=\{footnotesize,sf\}, labelfont=\{bf\}, margin=1cm, aboveskip=5pt, position=bottom]\{caption\}}}
+

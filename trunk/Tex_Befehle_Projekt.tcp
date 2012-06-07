@@ -6,7 +6,7 @@ Version=4
 MainFile=Tex_Befehle_Projekt.tex
 UseBibTeX=1
 UseMakeIndex=1
-ActiveProfile=LaTeX => PDF
+ActiveProfile=LaTeX => PS => PDF
 ProjectLanguage=de
 ProjectDialect=DE
 

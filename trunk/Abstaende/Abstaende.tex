@@ -30,3 +30,14 @@
 & Leerzeile   &\textrm{neuer Absatz (ggf. mit Einrückung) und Zeilenwechsel}
 \end{array}
 \end{displaymath}
+
+
+\subsection{Seiteumbrüche}
+\begin{description}
+\item[\textcolor{blue}{\tt \bck pagebreak}] empfiehlt einen Seitenumbruch an angegebenen Stelle. Die Abstände auf der Seite werden so gesetzt, dass die Seite bündig mit Kopf und Fuß abschließt.
+\item[\textcolor{blue}{\tt \bck newpage}] erzwingt einen Seitenumbruch an angegebenen Stelle. Die Abstände auf der Seite werden nicht vergrößert, um fußbündig zu werden, sondern es wird ggf. nach unten Platz gelassen.
+\item[\textcolor{blue}{\tt \bck clearpage}]  wie {\tt \bck newpage}, aber erzwingt zusätzlich die Ausgabe aller noch nicht gesetzten \textit{Gleitobjekte} (Abbildungen, Tabellen) auf den nächsten Seiten.
+\item[\textcolor{blue}{\tt \bck cleardoublepage}]  wie {\tt \bck clearpage}, aber fügt notfalls noch eine weitere Leerseite ein, damit der nächste Text auf einer Seite mit ungerader Seitenzahl beginnt (sinnvoll nur für doppelseitigen Druck).
+\end{description}
+
+

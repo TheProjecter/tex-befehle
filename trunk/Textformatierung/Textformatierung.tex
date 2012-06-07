@@ -8,6 +8,8 @@
 \underline{\underline{2-fach unterstrichener Testtext}}\\
 \texttt{Schreibmaschinen-Testtext}\\
 \textsc{Kapitälchen Testtext}\\
+\textrm{proportionale Serifenschrift}\\
+\textsf{proportionale serifenlose Schrift}
 \end{LTXexample}
 
 
@@ -28,14 +30,16 @@ Standardmäßig wird Text im Blocksatz, also links- und rechtsbündig gesetzt. Es g
 \end{multicols}
 \color{black}
 
+Die Befehle \textcolor{red}{\tt \bck centering \bck raggedleft \bck raggedright} verursachen keinen vertikalen Abstand!\\ z.B.: \textcolor{blue}{\tt \{\bck centering Text\}}
+
 \subsection{Schriftgröße}
 Die Schriftgröße ändert man mit einem Befehl ohne Parameter. Die neue Größe gilt bis zur nächsten Änderung, dem Ende der aktuellen Umgebung oder bei z.B. $\{\backslash large \dots \}$ bis zur schließenden Klammer.
 \begin{LTXexample}[pos=l, rframe={}, width=.45]
 \tiny{Testtext (tiny)}\\
 \scriptsize{Testtext (scriptsize)}\\
 \footnotesize{Testtext (footnotesize)}\\
-\small{Testtext (small)}\\
-\normalsize{default}\\
+\small{Testtext (small)}
+\normalsize{ -- default}\\
 \large{Testtext (large)}\\
 \Large{Testtext (Large)}\\
 \LARGE{Testtext (LARGE)}\\
@@ -44,7 +48,18 @@ Die Schriftgröße ändert man mit einem Befehl ohne Parameter. Die neue Größe gilt
 \end{LTXexample}
 
 
-\subsection{Kommentare}
+\subsection{Fußnoten}
+\textcolor{blue}{\tt \bck footnote\{\textit{Inhalt der Fußnote}\}} $\lrr$ erzeugt eine Fußnote im Text und gibt den Fußnoteninhalt automatisch in kleiner Schrift am Seitenende aus.\\
+
+\mspa\note{Die Nummerierung wird in den Dokumentklassen \textsf{book} und \textsf{report} kapitelweise durchgeführt und in der Dokumentklasse \textsf{article} fortlaufend durch das ganze Dokument.}
+\mspa\Note{Fußnoten sind nur im \textit{Absatz}-Modus möglich, \underbar{nicht} aber im \textit{Mathematik}-Modus oder im \textit{LR}-Modus.}
+
+Der Inhalt einer Fußnote darf beliebig komplex sein und insbesondere mehrzeiligen Text und mathematische Formeln enthalten.
+
+\Note{Hochstellungen wie bei den Fußnotennummern lassen sich mit dem Kommando\\ \textcolor{blue}{\tt \bck textsuperscript\{Hochgestellter Text\}} erzeugen, so \textcolor{cyan}{wie\textsuperscript{hier}}.}
+
+
+\ssp\subsection{Kommentare}
 Kommentare werden durch \color{red}\% \color{black} eingeleitet und reichen bis zum Zeilenumbruch der aktuellen Zeile.\\
 Eine Möglichkeit mehrzeilige Kommentare zu erzeugen gibt es nicht!
 
@@ -85,37 +100,45 @@ Das Paket sollte am besten als letztes geladen werden, da sehr viele Einstellung
 \color{blue}\begin{verbatim}
 \usepackage{hyperref}
 \hypersetup{
-	pdfpagemode=FullScreen,
-	pdftitle={TeX Befehle},					% Titel des PDF-Dokuments
-	pdfauthor={Christian Schwabe},	% Autor(Innen) des PDF-Dokuments
-	pdfpagelayout=SinglePage,
-	bookmarks=true,   				% Lesezeichen erzeugen
-	bookmarksopen=true,   		% Lesezeichen ausgeklappt
-	bookmarksnumbered=true,   % Anzeige der Kapitelzahlen am Anfang der Namen der Lesezeichen
-	pdfstartpage=Zahl,   			% Seite, welche automatisch geöffnet werden soll
-	baseurl=http://www.server.de/dateiname.pdf,   % URL des PDF-Dokuments (oder 																																	Hintergrundinformationen)
-	pdfsubject={Kurzbeschreibung als ein Satz},   % Inhaltsbeschreibung des PDF-Dokuments
-	pdfkeywords={Stichwörter},   									% Stichwortangabe zum PDF-Dokument
-	breaklinks=true,   % ermöglicht einen Umbruch von URLs
-	colorlinks=true,   % Einfärbung von Links
-	linkcolor=black,   % Linkfarbe: schwarz
-	anchorcolor=black, % Ankerfarbe: schwarz
-	citecolor=black,   % Literaturlinks: schwarz
-	filecolor=black,   % Links zu lokalen Dateien: schwarz
-	menucolor=black,   % Acrobat Menü Einträge: schwarz
-	pagecolor=black,   % Links zu anderen Seiten im Text: schwarz
-	urlcolor=black		 % URL-Farbe: schwarz
+	pdfpagemode=FullScreen,          % set default mode of PDF display
+	pdfpagelayout=SinglePage,        % set layout of PDF pages
+	pdfstartview={Fit|FitV|FitH},    % wie das Dokument beim Öffnen an das Fenster angepasst wird
+	pdftitle={TeX Befehle},                 % Titel des PDF-Dokuments
+	pdfauthor={Christian Schwabe},          % Autor(Innen) des PDF-Dokuments	
+	pdfsubject={Kurzbeschr. als ein Satz},  % Inhaltsbeschreibung des PDF-Dokuments
+	pdfkeywords={Stichwörter},              % Stichwortangabe zum PDF-Dokument
+	bookmarks=true,               % Lesezeichen erzeugen
+	bookmarksopen=false,          % Lesezeichen ausgeklappt
+	bookmarksnumbered=false,      % Anzeige der Kapitelzahlen am Anfang der Namen der Lesezeichen
+	pdfstartpage=Zahl,            % Seite, welche automatisch geöffnet werden soll
+	baseurl=http://www.abc.de/name.pdf,     % URL des PDF-Dokuments (oder Hintergrundinformationen)
+	breaklinks=true,    % ermöglicht einen Umbruch von URLs
+	colorlinks=true,    % Einfärbung von Links
+	linkcolor=red,      % Dokument-interne Links
+	urlcolor=magenta,   % externe URL-Links
+	citecolor=green,    % Links zum Literaturverzeichnis
+	anchorcolor=black,  % Ankerfarbe
+	filecolor=cyan,     % Links zu lokalen Dateien (file://)
+	menucolor=red,      % Menü-Links
+	linkbordercolor={1 0 0},    % roter Rahmen um Dokument-interne Links
+	citebordercolor={0 1 0},    % grüner Rahmen um Links zum Literaturverzeichnis
+	urlbordercolor={0 .5 .5}    % cyan Rahmen um externe URL-Links
 \end{verbatim}
 \color{black}
-Ein internes Sprung-/ Linkziel wird definiert durch:
-\color{blue}\begin{verbatim}
+
+\ssp Die \textbf{bordercolor} Optionen sind nur dann sichtbar wenn die Option \textcolor{red}{\tt colorlinks=false} gesetzt wurde, d.h. wenn die Links keine Farbe haben, sondern nur ein Kästchen um sie herum stehen soll. \textbf{Dieses Kästchen wird nur angezeigt aber nicht ausgedruckt}.\\
+Die \textit{Farbe} wird bei den \textit{bordercolor} Optionen als \textbf{RGB Wert zwischen 0..1} festgelegt.
+
+
+\Ssp Ein internes Sprung-/ Linkziel wird definiert durch:
+\color{blue}\Sspa\begin{verbatim}
 	\hypertarget{name}{text}
 \end{verbatim}\color{black}
 Ein klickbarer Link wird definiert durch:
-\color{blue}\begin{verbatim}
+\color{blue}\Sspa\begin{verbatim}
 	\hyperlink{name(=HypertargetName)}{text}
 \end{verbatim}\color{black}
 URL's werden folgendermaßen dargestellt:
-\color{blue}\begin{verbatim}
+\color{blue}\Sspa\begin{verbatim}
 	\href{http://www.caipiranha.de}{Caipi Homepage}
 \end{verbatim}\color{black}
