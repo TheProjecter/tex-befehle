@@ -1,0 +1,1 @@
+A small collection of TeX operations that might/are useful for my university life. Includes also some self-built operations to speed up the creation of my files.
